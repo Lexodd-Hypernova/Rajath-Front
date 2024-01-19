@@ -1,0 +1,170 @@
+.ad_Rem-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+.remark_sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.remark_sec span {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #2C2929;
+}
+
+.remark_sec i {
+    font-size: 20px;
+}
+
+.remark_sec-g i {
+    color: #68D391;
+}
+
+.remark_sec-y i {
+    color: #EEF316;
+}
+
+.remark_sec-r i {
+    color: #F11111;
+}
+
+.ad__Row2 {
+    margin-top: 30px;
+}
+
+.ad_fl-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.ad_filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ad_filter span {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+
+.ad-filter-fm select {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ref_Sec i {
+    font-size: 20px;
+}
+
+.ad__Row3 {
+    margin-top: 30px;
+}
+
+/* .ad_Table-sec tr:nth-of-type(1) th:nth-of-type(4){
+    display: none;
+}
+
+.ad_Table-sec tr td:nth-of-type(4){
+    display: none;
+} */
+
+
+
+
+/* dashboard mob popup */
+
+.ad_si-no {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #5C5A5A;
+    border-bottom: 1px solid #5C5A5A;
+}
+
+.ad_M-cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    margin-top: -20px;
+}
+
+.ad_lst span {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #000;
+}
+
+.ad_m-modal .modal-header {
+    border: none;
+}
+
+.ad_lst-col {
+    color: #68D391 !important;
+}
+
+
+
+/* approvals */
+
+.app_ref-btn {
+    padding-left: 20px;
+}
+
+.app_ref-btn button {
+    padding: 0;
+}
+
+.app_ref-btn i {
+    font-size: 20px;
+}
+
+.app_m-modal .modal-header {
+    border: none;
+}
+
+.app_btn button {
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.app_btn {
+    margin-top: 4rem;
+}
+
+.app_Table {
+    margin-top: 5rem;
+}

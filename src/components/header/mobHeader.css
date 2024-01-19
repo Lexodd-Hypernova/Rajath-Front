@@ -1,0 +1,26 @@
+.m_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.m_logo {
+    width: 27px;
+    height: 27px;
+}
+
+.m_logo img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.m_ham {
+    width: 19px;
+    height: 7px;
+}
+
+.m_ham img {
+    width: 100%;
+    object-fit: cover;
+}

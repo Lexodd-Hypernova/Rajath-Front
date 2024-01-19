@@ -1,0 +1,95 @@
+.su__Sec {
+    display: flex;
+}
+
+.header__Wrap {
+    width: 15%;
+    height: 100vh;
+    background: #220646;
+}
+
+.hd_Sec {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* justify-content: space-between; */
+    gap: 60px;
+}
+
+.logo_Div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0 0 16px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+}
+
+.logo img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.hd_ttl span {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+}
+
+.sd_Nav {
+    /* padding-top: 60px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.sd_Nav-top ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.sd_Nav-top li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sd_Nav-top ul a {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    background: #E03386;
+}
+
+.sd_Nav-btm button {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    background: #15012E;
+    border: none;
+    padding: 20px 0;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+}

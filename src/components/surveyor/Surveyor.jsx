@@ -37,24 +37,24 @@ const Surveyor = () => {
                             <div className='sur_pr'>
                                 <div className="input-group">
                                     <input type="text" className="form-control" aria-label="Text input with dropdown button" />
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Parliament</button>
                                     <ul className="dropdown-menu dropdown-menu-end">
-                                        <li><a className="dropdown-item" >Action</a></li>
-                                        <li><a className="dropdown-item" >Another action</a></li>
-                                        <li><a className="dropdown-item" >Something else here</a></li>
-                                        <li><a className="dropdown-item" >Separated link</a></li>
+                                        <li><a className="dropdown-item" >Parliament1</a></li>
+                                        <li><a className="dropdown-item" >Parliament2</a></li>
+                                        <li><a className="dropdown-item" >Parliament3</a></li>
+                                        <li><a className="dropdown-item" >Parliament4</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className='sur_as'>
                                 <div className="input-group">
                                     <input type="text" className="form-control" aria-label="Text input with dropdown button" />
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Assembly</button>
                                     <ul className="dropdown-menu dropdown-menu-end">
-                                        <li><a className="dropdown-item" >Action</a></li>
-                                        <li><a className="dropdown-item" >Another action</a></li>
-                                        <li><a className="dropdown-item" >Something else here</a></li>
-                                        <li><a className="dropdown-item" >Separated link</a></li>
+                                        <li><a className="dropdown-item" >Assembly1</a></li>
+                                        <li><a className="dropdown-item" >Assembly2</a></li>
+                                        <li><a className="dropdown-item" >Assembly3</a></li>
+                                        <li><a className="dropdown-item" >Assembly4</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -63,12 +63,12 @@ const Surveyor = () => {
                             <div className='sur_bt'>
                                 <div className="input-group">
                                     <input type="text" className="form-control" aria-label="Text input with dropdown button" />
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Booth</button>
                                     <ul className="dropdown-menu dropdown-menu-end">
-                                        <li><a className="dropdown-item" >Action</a></li>
-                                        <li><a className="dropdown-item" >Another action</a></li>
-                                        <li><a className="dropdown-item" >Something else here</a></li>
-                                        <li><a className="dropdown-item" >Separated link</a></li>
+                                        <li><a className="dropdown-item" >Booth1</a></li>
+                                        <li><a className="dropdown-item" >Booth2</a></li>
+                                        <li><a className="dropdown-item" >Booth3</a></li>
+                                        <li><a className="dropdown-item" >Booth4</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const Surveyor = () => {
                             <tbody className='align-middle'>
                                 <tr className='align-middle'>
                                     <td>01</td>
-                                    <td className='align-middle'>Jacob Thornton</td>
+                                    <td className='align-middle'>Parliament</td>
                                     <td>11-01-2024</td>
                                     <td>Booth level Agent 1</td>
                                     <td className='align-middle'>
@@ -106,7 +106,7 @@ const Surveyor = () => {
                                 </tr>
                                 <tr className='align-middle'>
                                     <td>02</td>
-                                    <td>Jacob Thornton</td>
+                                    <td>Parliament</td>
                                     <td>11-01-2024</td>
                                     <td>Booth level Agent 1</td>
                                     <td className='align-middle'>
@@ -117,7 +117,73 @@ const Surveyor = () => {
                                 </tr>
                                 <tr className='align-middle'>
                                     <td>03</td>
-                                    <td>Jacob Thornton</td>
+                                    <td>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>04</td>
+                                    <td className='align-middle'>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>05</td>
+                                    <td>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>06</td>
+                                    <td>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>07</td>
+                                    <td className='align-middle'>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>08</td>
+                                    <td>Parliament</td>
+                                    <td>11-01-2024</td>
+                                    <td>Booth level Agent 1</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>09</td>
+                                    <td>Parliament</td>
                                     <td>11-01-2024</td>
                                     <td>Booth level Agent 1</td>
                                     <td className='align-middle'>

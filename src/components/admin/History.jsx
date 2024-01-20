@@ -14,7 +14,7 @@ const History = () => {
                         <div className='hs_Row1'>
                             <div className='hs_sh-p'>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Parliament</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -22,7 +22,7 @@ const History = () => {
                             </div>
                             <div className='hs_sh-as'>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Assembly</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -32,7 +32,7 @@ const History = () => {
                         <div className='hs_Row2'>
                             <div className='hs_sh-bt'>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Booth</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -40,7 +40,7 @@ const History = () => {
                             </div>
                             <div className='hs_sh-sr'>
                                 <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Surveyor</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -49,11 +49,26 @@ const History = () => {
                         </div>
                         <div className='hs_Row3'>
                             <div className='hs_Fl-s'>
+                                <div className='hs_flt-dt'>
+                                    <div className='hs_flt-dt-bx'>
+                                        <div className='input-group'>
+                                            <span className="input-group-text sc-icn" id="basic-addon1">
+                                                <i className="fa-solid fa-magnifying-glass"></i>
+                                            </span>
+                                            <input
+                                                type='date'
+                                                className="form-control"
+                                                list="datalistOptions"
+                                                id="exampleDataList"
+                                                placeholder="Type to search..." />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className='hs_s-f'>
-                                    <span>Status Filter</span>
+                                    {/* <span>Status Filter</span> */}
                                     <div className='hs_fl-bx'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Fill</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -80,7 +95,7 @@ const History = () => {
                             </thead>
                             <tbody className='align-middle'>
                                 <tr className='align-middle'>
-                                    <td className='align-middle'>Jacob Thornton</td>
+                                    <td className='align-middle'>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>Parliament</td>
                                     <td className='align-middle'>
@@ -90,7 +105,7 @@ const History = () => {
                                     </td>
                                 </tr>
                                 <tr className='align-middle'>
-                                    <td>Jacob Thornton</td>
+                                    <td>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>Parliament</td>
                                     <td className='align-middle'>
@@ -100,7 +115,67 @@ const History = () => {
                                     </td>
                                 </tr>
                                 <tr className='align-middle'>
-                                    <td>Jacob Thornton</td>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td className='align-middle'>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td className='align-middle'>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>Parliament</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>Parliament</td>
                                     <td className='align-middle'>

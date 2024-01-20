@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./mobileModal.css";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -62,19 +62,19 @@ const MobileModal = ({ isOpen, onClose }) => {
                                 <div className="mob-mn_Col2">
                                     <ul>
                                         <li>
-                                            <a href="/">
+                                            <Link to="/" onClick={onClose}>
                                                 Dashboard
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/about">
+                                            <Link to="/approvals" onClick={onClose}>
                                                 Approvals
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/portfolio">
+                                            <Link to="/history" onClick={onClose}>
                                                 History
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                     <button>

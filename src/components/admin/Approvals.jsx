@@ -44,10 +44,25 @@ const Approvals = () => {
                             </div>
                         </div>
                     </div> */}
-                    <div className='app_ref-btn'>
-                        <button className='btn'>
-                            <i className="fa-solid fa-rotate-right"></i>
-                        </button>
+                    <div className='app_Row1'>
+                        <div className='app_fl-dt'>
+                            <div className='input-group'>
+                                <span className="input-group-text sc-icn" id="basic-addon1">
+                                    <i className="fa-solid fa-magnifying-glass"></i>
+                                </span>
+                                <input
+                                    type='date'
+                                    className="form-control"
+                                    list="datalistOptions"
+                                    id="exampleDataList"
+                                    placeholder="Type to search..." />
+                            </div>
+                        </div>
+                        <div className='app_ref-btn'>
+                            <button className='btn'>
+                                <i className="fa-solid fa-rotate-right"></i>
+                            </button>
+                        </div>
                     </div>
                     <div className='app_Table'>
                         <table className="table align-middle">
@@ -61,7 +76,7 @@ const Approvals = () => {
                             </thead>
                             <tbody className='align-middle'>
                                 <tr className='align-middle'>
-                                    <td className='align-middle'>Jacob Thornton</td>
+                                    <td className='align-middle'>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>9874561230</td>
                                     <td className='align-middle'>
@@ -71,7 +86,7 @@ const Approvals = () => {
                                     </td>
                                 </tr>
                                 <tr className='align-middle'>
-                                    <td>Jacob Thornton</td>
+                                    <td>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>9874561230</td>
                                     <td className='align-middle'>
@@ -81,7 +96,67 @@ const Approvals = () => {
                                     </td>
                                 </tr>
                                 <tr className='align-middle'>
-                                    <td>Jacob Thornton</td>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td className='align-middle'>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td className='align-middle'>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
+                                    <td>11-01-2024</td>
+                                    <td>9874561230</td>
+                                    <td className='align-middle'>
+                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="fa-solid fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr className='align-middle'>
+                                    <td>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>9874561230</td>
                                     <td className='align-middle'>

@@ -67,3 +67,17 @@
     flex-direction: column;
     gap: 10rem;
 }
+
+.c_Logo-wrap {
+    padding: 30px 20px;
+}
+
+.logo_mb-s {
+    width: 27px;
+    height: 27px;
+}
+
+.logo_mb-s img {
+    width: 100%;
+    object-fit: cover;
+}

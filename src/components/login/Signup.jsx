@@ -1,16 +1,22 @@
 import React from 'react';
-import MobHeader from "../header/MobHeader";
-import { useMobHeaderContext } from '../../context/MobHeader';
-import MobileModal from '../menu/MobileModal';
+// import MobHeader from "../header/MobHeader";
+// import { useMobHeaderContext } from '../../context/MobHeader';
+// import MobileModal from '../menu/MobileModal';
+import { Link } from 'react-router-dom';
 
 import "./style.css";
 
 const Signup = () => {
-    const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
+    // const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
     return (
         <>
             <div className='pg__Wrap'>
-                <MobHeader></MobHeader>
+                {/* <MobHeader></MobHeader> */}
+                <div className='c_Logo-wrap'>
+                    <div className='logo_mb-s'>
+                        <img src="assets/images/logo-m.png" alt="logo" />
+                    </div>
+                </div>
                 <div className='signup__Wrap'>
                     <div className='act_Ttl'>
                         <h3>Create an account</h3>
@@ -49,13 +55,13 @@ const Signup = () => {
 
                             <div className='sbt_btn'>
                                 <button type="submit" class="btn btn-primary">Get Start</button>
-                                <span>Already have an account? <a>Log in</a></span>
+                                <span>Already have an account? <Link to="/login">Log in</Link></span>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>
+            {/* <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal> */}
         </>
     )
 }

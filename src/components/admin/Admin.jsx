@@ -12,11 +12,7 @@ const Admin = () => {
 
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
 
-    const [selectedOption, setSelectedOption] = useState('');
-
-    const handleSelectChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+ 
 
     // const openMobModal = () => {
     //     setIsMobModalOpen(true);
@@ -53,6 +49,22 @@ const Admin = () => {
                     </div> */}
                     <MobHeader></MobHeader>
 
+                    <div className='ad_flt-dt'>
+                        <div className='ad_flt-dt-bx'>
+                            <div className='input-group'>
+                                <span className="input-group-text sc-icn" id="basic-addon1">
+                                    <i className="fa-solid fa-magnifying-glass"></i>
+                                </span>
+                                <input
+                                    type='date'
+                                    className="form-control"
+                                    list="datalistOptions"
+                                    id="exampleDataList"
+                                    placeholder="Type to search..." />
+                            </div>
+                        </div>
+                    </div>
+
                     <div className='ad__Row1'>
                         <div className='ad_Rem-sec'>
                             <div className='remark_sec remark_sec-g'>
@@ -76,14 +88,11 @@ const Admin = () => {
                             <div className='ad_filter'>
                                 <span>Status Filter</span>
                                 <div className='ad-filter-fm'>
-                                    <select
-                                        id="filterDropdown"
-                                        value={selectedOption}
-                                        onChange={handleSelectChange}
-                                    >
-                                        <option value="Fill">Fill</option>
-                                        <option value="Semi-fill">Semi-fill</option>
-                                        <option value="None">None</option>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Fill</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,7 +115,7 @@ const Admin = () => {
                                 </thead>
                                 <tbody className='align-middle'>
                                     <tr className='align-middle'>
-                                        <td className='align-middle'>Jacob Thornton</td>
+                                        <td className='align-middle'>Surveyor name</td>
                                         <td>11-01-2024</td>
                                         <td>Parliament</td>
                                         <td className='align-middle'>
@@ -116,7 +125,7 @@ const Admin = () => {
                                         </td>
                                     </tr>
                                     <tr className='align-middle'>
-                                        <td>Jacob Thornton</td>
+                                        <td>Surveyor name</td>
                                         <td>11-01-2024</td>
                                         <td>Parliament</td>
                                         <td className='align-middle'>
@@ -126,7 +135,67 @@ const Admin = () => {
                                         </td>
                                     </tr>
                                     <tr className='align-middle'>
-                                        <td>Jacob Thornton</td>
+                                        <td>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td className='align-middle'>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td className='align-middle'>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td>Surveyor name</td>
+                                        <td>11-01-2024</td>
+                                        <td>Parliament</td>
+                                        <td className='align-middle'>
+                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i className="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr className='align-middle'>
+                                        <td>Surveyor name</td>
                                         <td>11-01-2024</td>
                                         <td>Parliament</td>
                                         <td className='align-middle'>

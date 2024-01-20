@@ -1,0 +1,69 @@
+/* sign up */
+
+.act_Form {
+    padding: 0 37px;
+}
+
+.sbt_btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 17px;
+    align-items: center;
+    margin-top: 17px;
+}
+
+.act_Ttl h3 {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0em;
+    text-align: center;
+    /* margin-bottom: 30px; */
+    color: #101828;
+}
+
+.sbt_btn span {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #667085;
+}
+
+.sbt_btn a {
+    color: #0F50AA !important;
+    font-weight: 500;
+}
+
+.frgt {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1366D9;
+}
+
+.act_Ttl p {
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #667085;
+}
+
+.act_Ttl {
+    margin-bottom: 30px;
+}
+
+.login__Sec {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}

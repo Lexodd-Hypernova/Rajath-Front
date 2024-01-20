@@ -1,95 +1,102 @@
-.su__Sec {
-    display: flex;
+.sur_srt-sec {
+    padding: 0 20px;
 }
 
-.header__Wrap {
-    width: 15%;
-    height: 100vh;
-    background: #220646;
-}
-
-.hd_Sec {
-    height: 100%;
+.sur_Row1 {
     display: flex;
-    flex-direction: column;
-    gap: 60px;
-    /* justify-content: space-between; */
-    gap: 60px;
-}
-
-.logo_Div {
-    display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 20px;
-    padding: 30px 0 0 16px;
-}
-
-.logo {
-    width: 48px;
-    height: 48px;
-}
-
-.logo img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.hd_ttl span {
-    font-family: Roboto;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #fff;
-}
-
-.sd_Nav {
-    /* padding-top: 60px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-}
-
-.sd_Nav-top ul {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0;
+}
+
+.sc-icn i {
+    font-size: 12px;
+}
+
+.sur_ref-btn button {
     padding: 0;
 }
 
-.sd_Nav-top li {
-    width: 100%;
+.sur_ref-btn i {
+    font-size: 20px;
+}
+
+.sur_Row2 {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    /* gap: 20px; */
+    align-items: center;
+    margin-top: 15px;
 }
 
-.sd_Nav-top ul a {
-    font-family: Roboto;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #fff;
-    padding: 10px 0;
-    width: 100%;
-    background: #E03386;
+.sur_pr {
+    width: 48%;
 }
 
-.sd_Nav-btm button {
-    font-family: Roboto;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: center;
-    background: #15012E;
+.sur_as {
+    width: 48%;
+}
+
+.sur_Row3 {
+    display: flex;
+    margin-top: 15px;
+}
+
+.sur_bt {
+    width: 48%;
+}
+
+.sur_Row4 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sur__Table {
+    margin-top: 15px;
+}
+
+.sur_m-modal .modal-header {
     border: none;
-    padding: 20px 0;
-    color: #fff;
-    width: 100%;
-    cursor: pointer;
+}
+
+.sur_edit-modal .modal-header {
+    border: none;
+}
+
+.sur_input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sr_ed-inp-n {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #282323;
+    width: 50%;
+}
+
+.sr_ed-inp-fld {
+    width: 50%;
+}
+
+.sur_m-cnt {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 17px;
+    margin-top: 0;
+}
+
+.sur_addVl-cnt{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 12px;
+    margin-top: 0;
 }

@@ -168,3 +168,63 @@
 .app_Table {
     margin-top: 5rem;
 }
+
+
+
+/* History */
+
+.his__Sort {
+    padding: 0 20px;
+}
+
+.hs_Row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hs_Row2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.hs_Row3 {
+    margin-top: 17px;
+}
+
+.hs_Fl-s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.hs_s-f {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hs_s-f span {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+
+.hs_rf-btn button {
+    padding: 0;
+}
+
+.hs_rf-btn i {
+    font-size: 20px;
+}
+
+.hs_Table {
+    margin-top: 20px;
+}

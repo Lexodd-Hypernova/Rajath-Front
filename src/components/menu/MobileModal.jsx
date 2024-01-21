@@ -48,7 +48,7 @@ const MobileModal = ({ isOpen, onClose }) => {
 
                                         {/* <Link href="/" onClick={onClose}><Image src="/assets/images/menu-logo.svg" alt='project-d' width={400} height={56}></Image></Link> */}
                                         <a href="/" className="mob-menu_Modal-logo" onClick={onClose}>
-                                            <img src="assets/images/logo.png" alt="logo"></img>
+                                            <img src="/assets/images/logo.png" alt="logo"></img>
                                         </a>
                                         <span>
                                             Super Admin
@@ -62,17 +62,17 @@ const MobileModal = ({ isOpen, onClose }) => {
                                 <div className="mob-mn_Col2">
                                     <ul>
                                         <li>
-                                            <Link to="/" onClick={onClose}>
+                                            <Link to="/admin/dashboard" onClick={onClose}>
                                                 Dashboard
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/approvals" onClick={onClose}>
+                                            <Link to="/admin/approvals" onClick={onClose}>
                                                 Approvals
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to="/history" onClick={onClose}>
+                                            <Link to="/admin/history" onClick={onClose}>
                                                 History
                                             </Link>
                                         </li>

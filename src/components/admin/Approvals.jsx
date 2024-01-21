@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MobHeader from "../header/MobHeader";
 import { useMobHeaderContext } from '../../context/MobHeader';
 import MobileModal from '../menu/MobileModal';
 
 const Approvals = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
+
+    const [userList, setUserList] = useState('');
+
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [serialNumber, setSerialNumber] = useState(null);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredItems, setFilteredItems] = useState([]);
@@ -20,6 +25,151 @@ const Approvals = () => {
 
         // setFilteredItems(filtered);
     };
+
+
+    const token = localStorage.getItem("accessToken");
+    // console.log(token);
+
+    const fetchUserList = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        try {
+            const response = await fetch("http://13.235.80.103:5200/admin/getUsersList", requestOptions);
+            const data = await response.json();
+            console.log("users", data);
+            const users = data.data;
+            setUserList(users);
+            // handleUserList(users);
+            // console.log(users)
+        } catch (error) {
+            console.log('error', error);
+        }
+    }
+
+
+    const handleUserList = (data) => {
+        if (data) {
+            return data.map((item, index) => {
+                const createdAtDate = new Date(item.createdAt);
+                const serialNumber = index + 1;
+                return (
+                    <tr className='' key={item.id}>
+                        <td className=''>{item.user_name}</td>
+                        <td>{createdAtDate.toLocaleDateString()}</td>
+                        <td>{item.phn_no}</td>
+                        <td className=''>
+                            <div className='sh_btn' onClick={() => handleViewDetails(item, serialNumber)}>
+                                <button type="button" class="btn"
+                                    data-bs-toggle="modal"
+                                    //  data-bs-target={`#${item.user_name}`}
+                                    data-bs-target="#exampleModal"
+                                >
+                                    <i className="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+
+                        </td>
+                    </tr>
+                )
+            })
+        }
+    }
+
+    const handleViewDetails = (data, serialNumber) => {
+        setSelectedItem({ ...data, serialNumber });
+    };
+
+    const closeModal = () => {
+        setSelectedItem(null);
+    };
+
+    const handleAccept = () => {
+        // Perform actions for Accept button
+        console.log('Accept clicked');
+        // Make a POST request with the necessary data (e.g., emailId and status 'v')
+        // You can use fetch or any other library for making HTTP requests
+        // Example:
+        // fetch('your_api_url', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         emailId: selectedItem?.emailId,
+        //         status: 'v',
+        //     }),
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Success:', data))
+        // .catch(error => console.error('Error:', error));
+
+        // Close the modal
+
+        const token = localStorage.getItem("accessToken");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
+        var raw = JSON.stringify({
+            "emailId": selectedItem?.emailId,
+            "status": "V"
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("http://13.235.80.103:5200/admin/validateUser", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result)
+                fetchUserList(userList)
+            }
+            )
+            .catch(error => console.log('error', error));
+
+        closeModal();
+    };
+
+
+    const handleReject = () => {
+        // Perform actions for Reject button
+        console.log('Reject clicked');
+        // Make a POST request with the necessary data (e.g., emailId and status 'r')
+        // You can use fetch or any other library for making HTTP requests
+        // Example:
+        // fetch('your_api_url', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         emailId: selectedItem?.emailId,
+        //         status: 'r',
+        //     }),
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log('Success:', data))
+        // .catch(error => console.error('Error:', error));
+
+        // Close the modal
+        closeModal();
+    };
+
+
+
+    useEffect(() => {
+        fetchUserList();
+    }, [])
 
     return (
         <>
@@ -75,7 +225,10 @@ const Approvals = () => {
                                 </tr>
                             </thead>
                             <tbody className='align-middle'>
-                                <tr className='align-middle'>
+                                {
+                                    handleUserList(userList)
+                                }
+                                {/* <tr className='align-middle'>
                                     <td className='align-middle'>Surveyor name</td>
                                     <td>11-01-2024</td>
                                     <td>9874561230</td>
@@ -164,48 +317,53 @@ const Approvals = () => {
                                             <i className="fa-solid fa-eye"></i>
                                         </button>
                                     </td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>
-            <div class="modal fade app_m-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                            <span className='ad_si-no'>01</span>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div className='ad_M-cnt'>
-                                <div className='ad_lst'>
-                                    <span>Surveyor Name : Name</span>
-                                </div>
-                                <div className='ad_lst'>
-                                    <span>Date : 11-01-2024</span>
-                                </div>
-                                <div className='ad_lst'>
-                                    <span>Phone no : 9874561230</span>
-                                </div>
-                                <div className='ad_lst'>
-                                    <span>Booth : Booth Address</span>
-                                </div>
-                                <div className='app_btn'>
-                                    <button className='btn btn-success'>Accept</button>&nbsp;
-                                    <button className='btn btn-danger'>Reject</button>
+
+
+            <div className="modal fade app_m-modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    {selectedItem && (
+
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <span className='ad_si-no'>{selectedItem?.serialNumber}</span>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closeModal}></button>
+                            </div>
+                            <div className="modal-body">
+                                <div className='ad_M-cnt'>
+                                    <div className='ad_lst'>
+                                        <span>Surveyor Name: {selectedItem.user_name}</span>
+                                    </div>
+                                    <div className='ad_lst'>
+                                        <span>Date: {new Date(selectedItem.createdAt).toLocaleDateString()}</span>
+                                    </div>
+                                    <div className='ad_lst'>
+                                        <span>Phone no: {selectedItem.phn_no}</span>
+                                    </div>
+                                    <div className='ad_lst'>
+                                        <span>Address: {selectedItem.address}</span>
+                                    </div>
+                                    <div className='app_btn'>
+                                        <button className='btn btn-success' onClick={handleAccept}>Accept</button>&nbsp;
+                                        <button className='btn btn-danger' onClick={handleReject}>Reject</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        {/* <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> */}
-                    </div>
+                    )}
                 </div>
             </div>
+
+
+            {/* <span>Date: {new Date(selectedItem.createdAt).toLocaleDateString()}</span> */}
+
+
         </>
     )
 }

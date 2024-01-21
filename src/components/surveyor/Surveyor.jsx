@@ -276,7 +276,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Parliament</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -289,7 +289,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Assembly</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -302,7 +302,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Booth</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -347,10 +347,9 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected>Male</option>
+                                            <option value="1">Female</option>
+                                            <option value="2">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -392,7 +391,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Role</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -433,7 +432,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Parliament</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -446,7 +445,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Assembly</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -459,7 +458,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Booth</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
@@ -504,10 +503,9 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected>Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -557,7 +555,7 @@ const Surveyor = () => {
                                     </span>
                                     <div className='sr_ed-inp-fld'>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
+                                            <option selected>Select Role</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>

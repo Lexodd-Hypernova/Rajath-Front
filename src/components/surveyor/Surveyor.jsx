@@ -6,6 +6,24 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 
 const Surveyor = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
+
+
+    // const [formData, setFormData] = useState({
+    //     assembly: "", taluka: "",
+    //     booth: "", booth_address: "",
+    //     volunteer_name: "", phn_no: "",
+    //     emailId: "", gender: "", age: "",
+    //     caste: "", occupation: "", house_no: "",
+    //     volunteer_address: "", designation: "", profileImage: null,
+    // })
+
+
+    // handleSubmit function to onBoard volunter
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <>
             <div className='pg__Wrap'>
@@ -256,8 +274,6 @@ const Surveyor = () => {
             </div>
 
 
-
-
             {/* edit modal */}
 
             <div class="modal fade sur_edit-modal" id="surEditModal" tabindex="-1" aria-labelledby="surEditModalLabel" aria-hidden="true">
@@ -413,7 +429,6 @@ const Surveyor = () => {
             </div>
 
 
-
             {/* add volunteer modal */}
 
             <div class="modal fade sur_edit-modal" id="addVolModal" tabindex="-1" aria-labelledby="addVolModalLabel" aria-hidden="true">
@@ -425,156 +440,158 @@ const Surveyor = () => {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div className='sur_addVl-cnt'>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Parliament
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Parliament</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                            <form onSubmit={handleSubmit}>
+                                <div className='sur_addVl-cnt'>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Parliament
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Parliament</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Assembly
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Assembly</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Booth
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Booth</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Booth Address
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Volunteer  Name
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Phone No
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type='tel' class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Email ID
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type='email' class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Gender
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Male</option>
+                                                <option value="2">Female</option>
+                                                <option value="3">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Age
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Caste
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Occupation
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            House no
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="text" class="form-control" id="" aria-describedby=""></input>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Address
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <textarea class="form-control" id="" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Degination
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Role</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className='sur_input-box'>
+                                        <span className='sr_ed-inp-n'>
+                                            Upload Image
+                                        </span>
+                                        <div className='sr_ed-inp-fld'>
+                                            <input type="file" class="form-control" id="" />
+                                        </div>
+                                    </div>
+                                    <div className='sur_vl-btn'>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Assembly
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Assembly</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Booth
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Booth</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Booth Address
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Volunteer  Name
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Phone No
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type='tel' class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Email ID
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type='email' class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Gender
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Male</option>
-                                            <option value="2">Female</option>
-                                            <option value="3">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Age
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Caste
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Occupation
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        House no
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="text" class="form-control" id="" aria-describedby=""></input>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Address
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <textarea class="form-control" id="" rows="3"></textarea>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Degination
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Select Role</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className='sur_input-box'>
-                                    <span className='sr_ed-inp-n'>
-                                        Upload Image
-                                    </span>
-                                    <div className='sr_ed-inp-fld'>
-                                        <input type="file" class="form-control" id="" />
-                                    </div>
-                                </div>
-                                <div className='sur_vl-btn'>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;
-                                    <button type="button" class="btn btn-success">Submit</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         {/* <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

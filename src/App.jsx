@@ -9,6 +9,7 @@ import History from './components/admin/History';
 import Surveyor from './components/surveyor/Surveyor';
 import Login from './components/login/Login';
 import Signup from './components/login/Signup';
+import SurHistory from './components/surveyor/SurHistory';
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="admin/approvals" element={<Approvals />} />
             <Route path="admin/history" element={<History />} />
             <Route path="surveyor/dashboard" element={<Surveyor />} />
+            <Route path="surveyor/history" element={<SurHistory />} />
             {/* <Route path="login" element={<Login />} /> */}
             <Route path="signup" element={<Signup />} />
             {/* <Route path="post" element={<Post />} />

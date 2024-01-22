@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css";
 import MobHeader from "../header/MobHeader";
 import MobileModal from '../menu/MobileModal';
@@ -6,6 +6,31 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 
 const Surveyor = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
+
+    const [atsList, setAtsList] = useState("");
+
+    const token = localStorage.getItem("accessToken");
+    useEffect(() => {
+
+        const getAtsList = () => {
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${token}`);
+
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            fetch("http://13.235.80.103:5200/auth/getATS", requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+
+        getAtsList();
+
+    }, [])
 
 
     // const [formData, setFormData] = useState({
@@ -23,6 +48,9 @@ const Surveyor = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
     }
+
+
+
 
     return (
         <>
@@ -103,16 +131,14 @@ const Surveyor = () => {
                         <table className="table align-middle">
                             <thead className='align-middle table-primary'>
                                 <tr className='align-middle'>
-                                    <th scope="col">S.no</th>
-                                    <th scope="col">Parliament</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Committee category</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Assembly</th>
+                                    <th scope="col">Thaluka</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody className='align-middle'>
                                 <tr className='align-middle'>
-                                    <td>01</td>
+                                    <td>Baramati</td>
                                     <td className='align-middle'>Parliament</td>
                                     <td>11-01-2024</td>
                                     <td>Booth level Agent 1</td>
@@ -213,6 +239,29 @@ const Surveyor = () => {
                             </tbody>
                         </table>
                     </div>
+                    {/* <div className='sur_mn-ttl'>
+                        <div className='sr_mn-sec'>
+                            <span>Assembly</span>
+                            <span>Thaluka</span>
+                            <span>Status</span>
+                        </div>
+                    </div>
+                    <div className='sr_dt-div'>
+                        <div className='sr_dt-card'>
+                            <div className='sr_dt-as'>
+                                <span>Baramati</span>
+                            </div>
+                            <div className='sr_dt-tlk'>
+                                <div className='sr_tlk-n'>
+                                    <span>199 Daund</span>
+                                </div>
+                                <div className='sr_tlk-sts'>
+                                    <i className="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div> */}
+
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>

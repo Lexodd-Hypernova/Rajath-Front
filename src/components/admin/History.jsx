@@ -10,7 +10,7 @@ import { useMobHeaderContext } from "../../context/MobHeader";
 // import DetailModal from "./ModalDetail";
 import BoothModal from "./ModalBoothId";
 
-const Admin = () => {
+const History = () => {
   const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
   const [assemblyData, setAssemblyData] = useState([]);
   const [overViewData, setOverViewData] = useState([]);
@@ -218,4 +218,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default History;

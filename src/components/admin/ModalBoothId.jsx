@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import BASEURL from "../../data/baseurl";
 import Red from "../../../public/assets/images/red.svg";
-import Green from "../../../public/assets/images/Green.svg";
-import Yellow from "../../../public/assets/images/Yellow.svg";
 import "./ModelDetail.css";
 
 const BoothModal = ({ selectedRow, onClose }) => {
   const [boothdata, setBoothData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const getWordColor = (status) => {
     switch (status) {
       case "YELLOW":
@@ -19,12 +20,16 @@ const BoothModal = ({ selectedRow, onClose }) => {
         return "#000"; // Default color for unknown statuses
     }
   };
+
+  const renderStatusIcon = (status) => {
+    return status === "NOT FILLED" ? <img src={Red} alt="red" /> : "tick";
+  };
+
   useEffect(() => {
     const fetchBoothDetails = async () => {
       try {
         const response = await fetch(
           `${BASEURL.url}/admin/getVolunteersByBoothId?booth_id=${selectedRow.booth_id}`,
-          //   ${selectedRow.booth_id}
           {
             headers: {
               Authorization: BASEURL.token,
@@ -35,15 +40,21 @@ const BoothModal = ({ selectedRow, onClose }) => {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
+        if (!data.data) {
+          throw new Error("Unexpected data structure");
+        }
         setBoothData(data.data);
+        setLoading(false);
         console.log(data.data);
       } catch (err) {
-        console.log("Error fetching data :", err);
+        console.log("Error fetching data:", err);
+        setError("Error fetching data. Please try again."); // Set error message
+        setLoading(false);
       }
     };
     fetchBoothDetails();
-  }, []);
-  //   console.log(selectedRow);
+  }, [selectedRow.booth_id]);
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -51,47 +62,32 @@ const BoothModal = ({ selectedRow, onClose }) => {
           &times;
         </span>
 
-        <p>
-          Booth Level President :
-          {boothdata.PRESIDENT === "NOT FILLED" ? (
-            <img src={Red} alt="red" />
-          ) : (
-            "tick"
-          )}
-        </p>
-        <p>Booth Level Agent 1 :{boothdata.BLA1.volunteer_name}</p>
-        <p>
-          Booth Level Agent 2 :
-          {boothdata.BLA2 === "NOT FILLED" ? (
-            <img src={Red} alt="red" />
-          ) : (
-            "tick"
-          )}
-        </p>
-        {boothdata.volunteers.map((volunteer, index) => (
-          <p key={index}>
-            Booth Level Volunteer {index + 1} : {volunteer.volunteer_name} -{" "}
-            {volunteer.phn_no}
-          </p>
-        ))}
-        <p>
-          Booth Status:{" "}
-          <span style={{ color: getWordColor(selectedRow.booth_status) }}>
-            {selectedRow.booth_status === "YELLOW" ? (
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {!loading && !error && (
+          <>
+            <p>
+              Booth Level President: {renderStatusIcon(boothdata.PRESIDENT)}
+            </p>
+            <p>Booth Level Agent 1: {boothdata.BLA1.volunteer_name}</p>
+            <p>Booth Level Agent 2: {renderStatusIcon(boothdata.BLA2)}</p>
+
+            {boothdata.volunteers.map((volunteer, index) => (
+              <p key={index}>
+                Booth Level Volunteer {index + 1}: {volunteer.volunteer_name} -{" "}
+                {volunteer.phn_no}
+              </p>
+            ))}
+            <p>
+              Booth Status:{" "}
               <span style={{ color: getWordColor(selectedRow.booth_status) }}>
-                Semi Filled
+                {selectedRow.booth_status === "YELLOW" ? "Semi Filled" : null}
+                {selectedRow.booth_status === "GREEN" ? "Fully Filled" : null}
+                {selectedRow.booth_status === "RED" ? "Empty" : null}
               </span>
-            ) : selectedRow.booth_status === "GREEN" ? (
-              <span style={{ color: getWordColor(selectedRow.booth_status) }}>
-                Fully Filled
-              </span>
-            ) : selectedRow.booth_status === "RED" ? (
-              <span style={{ color: getWordColor(selectedRow.booth_status) }}>
-                Empty
-              </span>
-            ) : null}
-          </span>
-        </p>
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

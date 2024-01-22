@@ -1,11 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css";
 import MobHeader from "../header/MobHeader";
 import MobileModal from '../menu/MobileModal';
 import { useMobHeaderContext } from '../../context/MobHeader';
 
+import { Link } from 'react-router-dom';
+
 const Surveyor = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
+
+    const [atsList, setAtsList] = useState("");
+
+    const token = localStorage.getItem("accessToken");
+    useEffect(() => {
+
+        const getAtsList = async () => {
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", `Bearer ${token}`);
+
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            try {
+                const response = await fetch("http://13.235.80.103:5200/auth/getATS", requestOptions);
+                const data = await response.json();
+                const atsData = data.data;
+                console.log("ATS", data);
+                setAtsList(atsData);
+                // const users = data.data;
+                // setUserList(users);
+                // handleUserList(users);
+                // console.log(users)
+            } catch (error) {
+                console.log('error', error);
+            }
+        }
+
+        getAtsList();
+
+    }, [])
+
+
+
+
+    const viewAtsList = (data) => {
+        if (data) {
+            return Object.entries(data).map(([location, items]) => {
+                return (
+                    <div className='sr_dt-card' key={location}>
+                        <div className='sr_dt-as'>
+                            <span>{location}</span>
+                        </div>
+                        <div className='sr-dt-tlk_lst'>
+                            {Array.isArray(items) && items.map((item, index) => (
+                                <div className='sr_dt-tlk-list' key={index}>
+                                    <div className='sr_dt-tlk'>
+                                        <div className='sr_tlk-n'>
+                                            <Link to={`/polling-booths?assembly=${location}&taluka=${item.taluka}`}>{item.taluka}</Link>
+                                        </div>
+                                        <div className='sr_tlk-sts'>
+                                            {renderStatusIcon(item.status)}
+
+                                            {/* <i className="fa-solid fa-check"></i> */}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            ))}
+                        </div>
+                    </div>
+                );
+            });
+        }
+    };
+
+
+    const renderStatusIcon = (status) => {
+        switch (status) {
+            case "RED":
+                return <span className='sr-red'><i className="fa-solid fa-xmark"></i></span>;
+            case "YELLOW":
+                return <span className='sr-yellow'><i className="fa-solid fa-check"></i></span>;
+            case "GREEN":
+                return <span className='sr-green'><i className="fa-solid fa-check"></i></span>;
+            default:
+                return null;
+        }
+    };
+
+
 
 
     // const [formData, setFormData] = useState({
@@ -24,12 +110,15 @@ const Surveyor = () => {
         e.preventDefault();
     }
 
+
+
+
     return (
         <>
             <div className='pg__Wrap'>
                 <MobHeader></MobHeader>
                 <div className='sur__Sec-wrap'>
-                    <div className='sur_srt-sec'>
+                    {/* <div className='sur_srt-sec'>
                         <div className='sur_Row1'>
                             <div className='sur_sc-dt'>
                                 <div className='input-group'>
@@ -103,16 +192,14 @@ const Surveyor = () => {
                         <table className="table align-middle">
                             <thead className='align-middle table-primary'>
                                 <tr className='align-middle'>
-                                    <th scope="col">S.no</th>
-                                    <th scope="col">Parliament</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Committee category</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Assembly</th>
+                                    <th scope="col">Thaluka</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody className='align-middle'>
                                 <tr className='align-middle'>
-                                    <td>01</td>
+                                    <td>Baramati</td>
                                     <td className='align-middle'>Parliament</td>
                                     <td>11-01-2024</td>
                                     <td>Booth level Agent 1</td>
@@ -212,7 +299,33 @@ const Surveyor = () => {
                                 </tr>
                             </tbody>
                         </table>
+                    </div> */}
+                    <div className='sur_mn-ttl'>
+                        <div className='sr_mn-as'>
+                            <span>Assembly</span>
+                        </div>
+                        <div className='sr_mn-tlk'>
+                            <span>Thaluka</span>
+                            <span>Status</span>
+                        </div>
                     </div>
+                    <div className='sr_dt-div'>
+                        {/* <div className='sr_dt-card'>
+                            <div className='sr_dt-as'>
+                                <span>Baramati</span>
+                            </div>
+                            <div className='sr_dt-tlk'>
+                                <div className='sr_tlk-n'>
+                                    <span>199 Daund</span>
+                                </div>
+                                <div className='sr_tlk-sts'>
+                                    <i className="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+                        </div> */}
+                        {viewAtsList(atsList)}
+                    </div>
+
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>

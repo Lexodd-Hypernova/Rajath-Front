@@ -104,8 +104,24 @@
 
 /* new */
 .sur_mn-ttl {
-    padding: 10px 0px;
+    padding: 10px 15px;
     background: #6B46C1;
+    display: flex;
+}
+
+.sr_mn-as {
+    width: 40%;
+}
+
+.sr_dt-div {
+    padding: 0 15px;
+    margin-top: 20px;
+}
+
+.sr_mn-tlk {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sr_mn-sec {
@@ -114,7 +130,17 @@
     gap: 7rem;
 }
 
-.sr_mn-sec span {
+.sr_dt-card {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #C1C0C0;
+    padding-top: 5px;
+}
+
+.sr_dt-tlk-list {
+    margin-bottom: 10px;
+}
+
+.sur_mn-ttl span {
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
@@ -126,8 +152,6 @@
 
 .sr_dt-card {
     display: flex;
-    justify-content: center;
-    gap: 7rem;
 }
 
 .sr_dt-as span {
@@ -142,8 +166,26 @@
 
 .sr_dt-tlk {
     display: flex;
-    justify-content: center;
-    gap: 7rem;
+    justify-content: space-between;
+    /* gap: 7rem; */
+}
+
+.sr-dt-tlk_lst {
+    width: 60%;
+}
+
+.sr_dt-as {
+    width: 40%;
+}
+
+.sr_tlk-n a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
 }
 
 .sr_tlk-n span {
@@ -157,4 +199,16 @@
 
 .sr_tlk-sts i {
     font-size: 20px;
+}
+
+.sr-red i {
+    color: #F11111;
+}
+
+.sr-yellow i {
+    color: #EEF316;
+}
+
+.sr-green i {
+    color: #68D391;
 }

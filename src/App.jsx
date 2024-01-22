@@ -10,6 +10,8 @@ import Surveyor from './components/surveyor/Surveyor';
 import Login from './components/login/Login';
 import Signup from './components/login/Signup';
 import SurHistory from './components/surveyor/SurHistory';
+import PollingBooth from './components/surveyor/PollingBooth';
+import BoothAddress from './components/surveyor/BoothAddress';
 function App() {
 
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="admin/history" element={<History />} />
             <Route path="surveyor/dashboard" element={<Surveyor />} />
             <Route path="surveyor/history" element={<SurHistory />} />
+            <Route path="polling-booths" element={<PollingBooth />} />
+            <Route path="booth-address" element={<BoothAddress />} />
             {/* <Route path="login" element={<Login />} /> */}
             <Route path="signup" element={<Signup />} />
             {/* <Route path="post" element={<Post />} />

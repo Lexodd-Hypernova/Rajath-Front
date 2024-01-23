@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import BASEURL from "../../data/baseurl";
 import Red from "../../../public/assets/images/red.svg";
 import "./ModelDetail.css";
+import DataPass from "./DataPass";
 
 const BoothModal = ({ selectedRow, onClose }) => {
   const [boothdata, setBoothData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [datapass, setDataPass] = useState([]);
   const [error, setError] = useState(null);
 
   const getWordColor = (status) => {
@@ -23,6 +25,10 @@ const BoothModal = ({ selectedRow, onClose }) => {
 
   const renderStatusIcon = (status) => {
     return status === "NOT FILLED" ? <img src={Red} alt="red" /> : "tick";
+  };
+
+  const updateDataPass = (data) => {
+    setDataPass([data]);
   };
 
   useEffect(() => {
@@ -45,7 +51,6 @@ const BoothModal = ({ selectedRow, onClose }) => {
         }
         setBoothData(data.data);
         setLoading(false);
-        console.log(data.data);
       } catch (err) {
         console.log("Error fetching data:", err);
         setError("Error fetching data. Please try again."); // Set error message
@@ -53,7 +58,7 @@ const BoothModal = ({ selectedRow, onClose }) => {
       }
     };
     fetchBoothDetails();
-  }, [selectedRow.booth_id]);
+  }, [selectedRow.booth_id, updateDataPass]); // Include updateDataPass in the dependency array
 
   return (
     <div className="modal">
@@ -66,26 +71,42 @@ const BoothModal = ({ selectedRow, onClose }) => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {!loading && !error && (
           <>
-            <p>
-              Booth Level President: {renderStatusIcon(boothdata.PRESIDENT)}
-            </p>
-            <p>Booth Level Agent 1: {boothdata.BLA1.volunteer_name}</p>
-            <p>Booth Level Agent 2: {renderStatusIcon(boothdata.BLA2)}</p>
+            {datapass.length > 0 ? (
+              // Render content based on datapass
+              datapass.map((data, index) => (
+                <DataPass data={data} index={index} key={index} />
+              ))
+            ) : (
+              // Render booth details
+              <>
+                <p onClick={() => updateDataPass(boothdata.PRESIDENT)}>
+                  Booth Level President: {renderStatusIcon(boothdata.PRESIDENT)}
+                </p>
+                <p onClick={() => updateDataPass(boothdata.BLA1)}>
+                  Booth Level Agent 1: {boothdata.BLA1.volunteer_name}
+                </p>
+                <p onClick={() => updateDataPass(boothdata.BLA2)}>
+                  Booth Level Agent 2: {renderStatusIcon(boothdata.BLA2)}
+                </p>
 
-            {boothdata.volunteers.map((volunteer, index) => (
-              <p key={index}>
-                Booth Level Volunteer {index + 1}: {volunteer.volunteer_name} -{" "}
-                {volunteer.phn_no}
-              </p>
-            ))}
-            <p>
-              Booth Status:{" "}
-              <span style={{ color: getWordColor(selectedRow.booth_status) }}>
-                {selectedRow.booth_status === "YELLOW" ? "Semi Filled" : null}
-                {selectedRow.booth_status === "GREEN" ? "Fully Filled" : null}
-                {selectedRow.booth_status === "RED" ? "Empty" : null}
-              </span>
-            </p>
+                {boothdata.volunteers.map((volunteer, index) => (
+                  <p key={index} onClick={() => updateDataPass(volunteer)}>
+                    Booth Level Volunteer {index + 1}:{" "}
+                    {volunteer.volunteer_name} - {volunteer.phn_no}
+                  </p>
+                ))}
+                <p onClick={() => updateDataPass(selectedRow.booth_status)}>
+                  Booth Status:{" "}
+                  <span
+                    style={{ color: getWordColor(selectedRow.booth_status) }}
+                  >
+                    {selectedRow.booth_status === "YELLOW" && "Semi Filled"}
+                    {selectedRow.booth_status === "GREEN" && "Fully Filled"}
+                    {selectedRow.booth_status === "RED" && "Empty"}
+                  </span>
+                </p>
+              </>
+            )}
           </>
         )}
       </div>

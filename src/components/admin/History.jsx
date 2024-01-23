@@ -7,7 +7,6 @@ import YellowSvg from "../../../public/assets/images/Yellow.svg";
 import GreenSvg from "../../../public/assets/images/Green.svg";
 import RedSvg from "../../../public/assets/images/red.svg";
 import { useMobHeaderContext } from "../../context/MobHeader";
-// import DetailModal from "./ModalDetail";
 import BoothModal from "./ModalBoothId";
 
 const History = () => {
@@ -16,7 +15,9 @@ const History = () => {
   const [overViewData, setOverViewData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
-
+  const [selectedAssembly, setSelectedAssembly] = useState("All");
+  const [selectedTaluka, setSelectedTaluka] = useState("All");
+  const [listOfTaluka, setListOfTaluka] = useState([]);
   useEffect(() => {
     const fetchOverView = async () => {
       try {
@@ -30,9 +31,8 @@ const History = () => {
         }
         const data = await response.json();
         setOverViewData(data.data);
-        // console.log(data.data);
       } catch (err) {
-        console.log("Error fetching data :", err);
+        console.log("Error fetching overview data:", err);
       }
     };
 
@@ -50,30 +50,54 @@ const History = () => {
 
         const data = await response.json();
 
-        // Filter data based on the selectedDate
-        const filteredData = selectedDate
-          ? data.data.filter(
-              (item) =>
-                new Date(item.createdAt).toLocaleDateString() ===
-                new Date(selectedDate).toLocaleDateString()
-            )
-          : data.data;
+        // Filter data based on the selectedDate, selectedAssembly, and selectedTaluka
+        const filteredData = data.data.filter((item) => {
+          const dateFilter =
+            !selectedDate ||
+            new Date(item.createdAt).toLocaleDateString() ===
+              new Date(selectedDate).toLocaleDateString();
+
+          const assemblyFilter =
+            selectedAssembly === "All" || item.assembly === selectedAssembly;
+          // console.log(selectedAssembly);
+          const talukaFilter =
+            selectedTaluka === "All" || item.taluka === selectedTaluka;
+
+          return dateFilter && assemblyFilter && talukaFilter;
+        });
 
         setAssemblyData(filteredData);
-        // console.log(filteredData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
+    const getTalukasByAssembly = async (selectedAssembly) => {
+      try {
+        const response = await fetch(
+          `${BASEURL.url}/com/talukasByAssembly?assembly=${selectedAssembly}`,
+          {
+            headers: {
+              Authorization: BASEURL.token,
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setListOfTaluka(data.data);
+        console.log(data.data);
+      } catch (err) {
+        console.log("Error fetching overview data:", err);
+      }
+    };
+
+    getTalukasByAssembly(selectedAssembly);
+
     fetchData();
     fetchOverView();
-
-    // Cleanup function
-    return () => {
-      // Cleanup logic if needed
-    };
-  }, [selectedDate]); // Include selectedDate as a dependency
+  }, [selectedDate, selectedAssembly, selectedTaluka]);
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -98,22 +122,29 @@ const History = () => {
               <select
                 className="form-select"
                 aria-label="Default select example"
+                onChange={(e) => setSelectedAssembly(e.target.value)}
               >
-                <option selected>Assembly</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="All">Assembly</option>
+                <option value="Baramati">Baramati</option>
+                <option value="Satara">Satara</option>
+                <option value="Parbhani">Parbhani</option>
+                <option value="Buldhana">Buldhana</option>
+                <option value="Shirur">Shirur</option>
+                <option value="Osmanabad">Osmanabad</option>
               </select>
             </div>
             <div className="hs_sh-as">
               <select
                 className="form-select"
                 aria-label="Default select example"
+                onChange={(e) => setSelectedTaluka(e.target.value)}
               >
-                <option selected>Thaluka</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="All">Taluka</option>
+                {listOfTaluka.map((item, index) => (
+                  <option value={item} key={index}>
+                    {item}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -180,7 +211,7 @@ const History = () => {
                   {assemblyData.map((item, index) => (
                     <tr
                       onClick={() => {
-                        console.log("Row clicked:", item);
+                        // console.log("Row clicked:", item);
                         setSelectedRow(item);
                       }}
                       key={index}
@@ -203,10 +234,6 @@ const History = () => {
         onClose={closeMobModal}
       ></MobileModal>
       {selectedRow && (
-        // <DetailModal
-        //   selectedRow={selectedRow}
-        //   onClose={() => setSelectedRow(null)}
-        // />
         <BoothModal
           selectedRow={selectedRow}
           onClose={() => {

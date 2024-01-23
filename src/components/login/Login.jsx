@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import MobHeader from "../header/MobHeader";
 // import { useMobHeaderContext } from '../../context/MobHeader';
 // import MobileModal from '../menu/MobileModal';
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -15,25 +15,22 @@ const Login = () => {
   // useNavigate
   const navigate = useNavigate();
 
-
   // Formdata
   const [formData, setFormData] = useState({
-    phn_no: "", password: "",
-  })
+    phn_no: "",
+    password: "",
+  });
 
   // Authorization
 
   const [isAuthorized, setIsAuthorized] = useState(false);
-  const [error, setError] = useState('')
-
+  const [error, setError] = useState("");
 
   // On input change
   const onChangeInput = async (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-
 
   // Handle submit function
   const handleSubmit = async (e) => {
@@ -44,21 +41,22 @@ const Login = () => {
     // myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDU3NjQxMjEsImV4cCI6MTczNzMyMTcyMSwiYXVkIjoiMTpTVVBFUiBBRE1JTiIsImlzcyI6InBhYmFwcGxpY2F0aW9uIn0.4dkblN2KV86c5MQu85PnFsnDVq1j9uTvmh5tJ9x1YA4");
 
     var raw = JSON.stringify({
-      "phn_no": formData.phn_no,
-      "password": formData.password
+      phn_no: formData.phn_no,
+      password: formData.password,
     });
 
     var requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: myHeaders,
       body: raw,
-      redirect: 'follow'
+      redirect: "follow",
     };
 
     try {
-      const response = await fetch("http://13.235.80.103:5200/auth/login", requestOptions);
-
-
+      const response = await fetch(
+        "https://pab-backend.onrender.com/auth/login",
+        requestOptions
+      );
 
       if (response.ok) {
         setIsAuthorized(true);
@@ -67,17 +65,14 @@ const Login = () => {
         const role_type = data?.data?.role_type ?? "";
         const accessToken = data?.data?.accessToken;
 
-
         localStorage.setItem("accessToken", accessToken);
-
-
 
         localStorage.setItem("role_type", role_type);
 
-        console.log('role_type', role_type);
+        console.log("role_type", role_type);
 
         // Redirect to the appropriate dashboard
-        if (role_type === 'SUPER ADMIN') {
+        if (role_type === "SUPER ADMIN") {
           // Use the Navigate component to redirect
           navigate("/admin/dashboard");
           // <Navigate to="/admin/dashboard" />;
@@ -88,42 +83,43 @@ const Login = () => {
           localStorage.setItem("surveyor_id", surveyorId);
           navigate("/surveyor/dashboard");
         }
-      }
-      else {
+      } else {
         // If login fails, parse and display the error response
         const errorResponse = await response.json();
         setError(errorResponse.message);
-        console.error('Login failed:', errorResponse.message);
+        console.error("Login failed:", errorResponse.message);
         // console.error('Login failed');
       }
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
-  }
+  };
 
   return (
     <>
-      <div className='pg__Wrap'>
+      <div className="pg__Wrap">
         {/* <MobHeader></MobHeader> */}
-        <div className='c_Logo-wrap'>
-          <div className='logo_mb-s'>
+        <div className="c_Logo-wrap">
+          <div className="logo_mb-s">
             <img src="assets/images/logo-m.png" alt="logo" />
           </div>
         </div>
-        <div className='login__Sec'>
-          <div className='act_Ttl'>
+        <div className="login__Sec">
+          <div className="act_Ttl">
             <h3>Log in to your account</h3>
             <p>Welcome back! Please enter your details.</p>
           </div>
-          <div className='act_Form'>
+          <div className="act_Form">
             <form onSubmit={handleSubmit}>
               <div class="mb-3">
-                <label for="sPhone" class="form-label">Phone No*</label>
+                <label for="sPhone" class="form-label">
+                  Phone No*
+                </label>
                 <input
                   type="tel"
                   class="form-control"
                   id="sPhone"
-                  name='phn_no'
+                  name="phn_no"
                   value={formData.phn_no}
                   onChange={onChangeInput}
                   autoComplete="off"
@@ -131,24 +127,30 @@ const Login = () => {
                 />
               </div>
               <div class="mb-3">
-                <label for="sPassword" class="form-label">Password*</label>
+                <label for="sPassword" class="form-label">
+                  Password*
+                </label>
                 <input
                   type="password"
                   class="form-control"
                   id="sPassword"
-                  name='password'
+                  name="password"
                   value={formData.password}
                   onChange={onChangeInput}
                   autoComplete="off"
                   required
                 />
               </div>
-              <div className='mb-3'>
-                <span className='frgt'>Forgot password?</span>
+              <div className="mb-3">
+                <span className="frgt">Forgot password?</span>
               </div>
-              <div className='sbt_btn'>
-                <button type="submit" class="btn btn-primary">Login</button>
-                <span>Don’t have an account? <Link to="/signup">Sign up</Link></span>
+              <div className="sbt_btn">
+                <button type="submit" class="btn btn-primary">
+                  Login
+                </button>
+                <span>
+                  Don’t have an account? <Link to="/signup">Sign up</Link>
+                </span>
               </div>
             </form>
           </div>
@@ -156,7 +158,7 @@ const Login = () => {
       </div>
       {/* <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal> */}
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

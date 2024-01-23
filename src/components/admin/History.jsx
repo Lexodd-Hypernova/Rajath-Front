@@ -211,21 +211,27 @@ const History = () => {
                   </tr>
                 </thead>
                 <tbody className="align-middle">
-                  {assemblyData.map((item, index) => (
-                    <tr
-                      onClick={() => {
-                        // console.log("Row clicked:", item);
-                        setSelectedRow(item);
-                      }}
-                      key={index}
-                      className="align-middle"
-                    >
-                      <td className="align-middle">{item.assembly}</td>
-                      <td>{item.taluka}</td>
-                      <td>{item.booth}</td>
-                      <td>{getStatusIcon(item.booth_status)}</td>
+                  {assemblyData.length > 0 ? (
+                    assemblyData.map((item, index) => (
+                      <tr
+                        onClick={() => {
+                          // console.log("Row clicked:", item);
+                          setSelectedRow(item);
+                        }}
+                        key={index}
+                        className="align-middle"
+                      >
+                        <td className="align-middle">{item.assembly}</td>
+                        <td>{item.taluka}</td>
+                        <td>{item.booth}</td>
+                        <td>{getStatusIcon(item.booth_status)}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4">Data is loading...</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>

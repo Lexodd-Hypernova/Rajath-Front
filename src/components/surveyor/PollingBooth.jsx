@@ -54,19 +54,28 @@ const PollingBooth = () => {
 
 
     const veiwPollingBooths = (data) => {
-        if (data) {
-            return data.map((item, index) => {
-                return (
-                    <li key={index}>
-                        <Link to={`/booth-address?assembly=${assembly}&taluka=${taluka}&booth=${item.boothName}`}>
-                            {item.boothName}
-                        </Link>
-                        {renderStatusIcon(item.status)}
-                    </li>
-                )
-            })
+        if (!data) {
+            return <div>Data is loading...</div>;
         }
-    }
+
+        return (
+            <ul>
+                {data.length > 0 ? (
+                    data.map((item, index) => (
+                        <li key={index}>
+                            <Link to={`/booth-address?assembly=${assembly}&taluka=${taluka}&booth=${item.boothName}`}>
+                                {item.boothName}
+                            </Link>
+                            {renderStatusIcon(item.status)}
+                        </li>
+                    ))
+                ) : (
+                    <li>Data is loading...</li>
+                )}
+            </ul>
+        );
+    };
+
 
     const renderStatusIcon = (status) => {
         switch (status) {

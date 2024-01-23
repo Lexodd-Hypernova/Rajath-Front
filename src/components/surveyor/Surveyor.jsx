@@ -48,34 +48,35 @@ const Surveyor = () => {
 
 
     const viewAtsList = (data) => {
-        if (data) {
-            return Object.entries(data).map(([location, items]) => {
-                return (
-                    <div className='sr_dt-card' key={location}>
-                        <div className='sr_dt-as'>
-                            <span>{location}</span>
-                        </div>
-                        <div className='sr-dt-tlk_lst'>
-                            {Array.isArray(items) && items.map((item, index) => (
-                                <div className='sr_dt-tlk-list' key={index}>
-                                    <div className='sr_dt-tlk'>
-                                        <div className='sr_tlk-n'>
-                                            <Link to={`/polling-booths?assembly=${location}&taluka=${item.taluka}`}>{item.taluka}</Link>
-                                        </div>
-                                        <div className='sr_tlk-sts'>
-                                            {renderStatusIcon(item.status)}
+        if (!data) {
+            return <div>Data is loading...</div>;
+        }
 
-                                            {/* <i className="fa-solid fa-check"></i> */}
-                                        </div>
+        return Object.entries(data).map(([location, items]) => (
+            <div className='sr_dt-card' key={location}>
+                <div className='sr_dt-as'>
+                    <span>{location}</span>
+                </div>
+                <div className='sr-dt-tlk_lst'>
+                    {Array.isArray(items) ? (
+                        items.map((item, index) => (
+                            <div className='sr_dt-tlk-list' key={index}>
+                                <div className='sr_dt-tlk'>
+                                    <div className='sr_tlk-n'>
+                                        <Link to={`/polling-booths?assembly=${location}&taluka=${item.taluka}`}>{item.taluka}</Link>
+                                    </div>
+                                    <div className='sr_tlk-sts'>
+                                        {renderStatusIcon(item.status)}
                                     </div>
                                 </div>
-
-                            ))}
-                        </div>
-                    </div>
-                );
-            });
-        }
+                            </div>
+                        ))
+                    ) : (
+                        <div>Data is loading...</div>
+                    )}
+                </div>
+            </div>
+        ));
     };
 
 

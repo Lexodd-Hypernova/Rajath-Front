@@ -4,6 +4,8 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 import MobileModal from '../menu/MobileModal';
 
 import BASEURL from '../../data/baseurl';
+import "./approval.css";
+import ApprovalCustomModal from './ApprovalCustomModal';
 
 const Approvals = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -15,17 +17,15 @@ const Approvals = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredItems, setFilteredItems] = useState([]);
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalData, setModalData] = useState(null);
+
+
     // Function to handle input change and update filtered items
     const handleInputChange = (e) => {
         e.preventDefault();
-        // const newSearchTerm = event.target.value.toLowerCase();
-        // setSearchTerm(newSearchTerm);
-
-        // const filtered = allItems.filter((item) =>
-        //     item.toLowerCase().includes(newSearchTerm)
-        // );
-
-        // setFilteredItems(filtered);
     };
 
 
@@ -66,11 +66,12 @@ const Approvals = () => {
                         <td>{createdAtDate.toLocaleDateString()}</td>
                         <td>{item.phn_no}</td>
                         <td className=''>
-                            <div className='sh_btn' onClick={() => handleViewDetails(item, serialNumber)}>
+                            <div className='sh_btn' >
                                 <button type="button" class="btn"
-                                    data-bs-toggle="modal"
+                                    // data-bs-toggle="modal"
                                     //  data-bs-target={`#${item.user_name}`}
                                     data-bs-target="#exampleModal"
+                                    onClick={() => handleViewDetails(item, serialNumber)}
                                 >
                                     <i className="fa-solid fa-eye"></i>
                                 </button>
@@ -83,89 +84,23 @@ const Approvals = () => {
         }
     }
 
-    const handleViewDetails = (data, serialNumber) => {
-        setSelectedItem({ ...data, serialNumber });
+    // const handleViewDetails = (data, serialNumber) => {
+    //     setSelectedItem({ ...data, serialNumber });
+    // };
+
+    const handleViewDetails = (data) => {
+        setModalData(data);
+        setIsModalOpen(true);
     };
 
-    const closeModal = () => {
-        setSelectedItem(null);
-    };
+    // const closeModal = () => {
+    //     setSelectedItem(null);
+    // };
 
-    const handleAccept = () => {
-        // Perform actions for Accept button
-        console.log('Accept clicked');
-        // Make a POST request with the necessary data (e.g., emailId and status 'v')
-        // You can use fetch or any other library for making HTTP requests
-        // Example:
-        // fetch('your_api_url', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         emailId: selectedItem?.emailId,
-        //         status: 'v',
-        //     }),
-        // })
-        // .then(response => response.json())
-        // .then(data => console.log('Success:', data))
-        // .catch(error => console.error('Error:', error));
-
-        // Close the modal
-
-        const token = localStorage.getItem("accessToken");
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Authorization", `Bearer ${token}`);
-
-        var raw = JSON.stringify({
-            "emailId": selectedItem?.emailId,
-            "status": "V"
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch(`${BASEURL.url}/admin/validateUser`, requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                console.log(result)
-                fetchUserList(userList)
-            }
-            )
-            .catch(error => console.log('error', error));
-
-        closeModal();
-    };
+ 
 
 
-    const handleReject = () => {
-        // Perform actions for Reject button
-        console.log('Reject clicked');
-        // Make a POST request with the necessary data (e.g., emailId and status 'r')
-        // You can use fetch or any other library for making HTTP requests
-        // Example:
-        // fetch('your_api_url', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         emailId: selectedItem?.emailId,
-        //         status: 'r',
-        //     }),
-        // })
-        // .then(response => response.json())
-        // .then(data => console.log('Success:', data))
-        // .catch(error => console.error('Error:', error));
 
-        // Close the modal
-        closeModal();
-    };
 
 
 
@@ -178,24 +113,6 @@ const Approvals = () => {
             <div className='pg__Wrap'>
                 <MobHeader></MobHeader>
                 <div className='approval__Sec'>
-                    {/* <div className='app__Fil-s'>
-                        <div className='app_Filter'>
-                            <div className='app_S-box'>
-                                <input className="form-control" id="" placeholder="Type to search..."
-                                    value={searchTerm}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                            <div className='app_Dropdown'>
-                                <select className="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> */}
                     <div className='app_Row1'>
                         <div className='app_fl-dt'>
                             <div className='input-group'>
@@ -211,7 +128,7 @@ const Approvals = () => {
                             </div>
                         </div>
                         <div className='app_ref-btn'>
-                            <button className='btn'>
+                            <button className='btn' onClick={()=>fetchUserList(userList)}>
                                 <i className="fa-solid fa-rotate-right"></i>
                             </button>
                         </div>
@@ -227,108 +144,43 @@ const Approvals = () => {
                                 </tr>
                             </thead>
                             <tbody className='align-middle'>
-                                {
-                                    handleUserList(userList)
-                                }
-                                {/* <tr className='align-middle'>
-                                    <td className='align-middle'>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td className='align-middle'>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td className='align-middle'>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr className='align-middle'>
-                                    <td>Surveyor name</td>
-                                    <td>11-01-2024</td>
-                                    <td>9874561230</td>
-                                    <td className='align-middle'>
-                                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i className="fa-solid fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr> */}
+                                {Array.isArray(userList) ? (
+                                    userList.map((item) => (
+
+                                        <tr key={item.id}>
+                                            <td>{item.surveyor_name}</td>
+                                            <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+                                            <td>{item.phn_no}</td>
+                                            <td>
+                                                <button
+                                                    type="button"
+                                                    className='btn'
+                                                    onClick={() => handleViewDetails(item)}
+                                                >
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="4">Loading user data...</td>
+                                    </tr>
+                                )}
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>
+            <ApprovalCustomModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                data={modalData}
+            ></ApprovalCustomModal>
 
-
-            <div className="modal fade app_m-modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {/* <div className="modal fade app_m-modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     {selectedItem && (
 
@@ -340,10 +192,10 @@ const Approvals = () => {
                             <div className="modal-body">
                                 <div className='ad_M-cnt'>
                                     <div className='ad_lst'>
-                                        <span>Surveyor Name: {selectedItem.user_name}</span>
+                                        <span>Surveyor Name: {selectedItem?.user_name}</span>
                                     </div>
                                     <div className='ad_lst'>
-                                        <span>Date: {new Date(selectedItem.createdAt).toLocaleDateString()}</span>
+                                        <span>Date: {new Date(selectedItem?.createdAt).toLocaleDateString()}</span>
                                     </div>
                                     <div className='ad_lst'>
                                         <span>Phone no: {selectedItem.phn_no}</span>
@@ -360,7 +212,7 @@ const Approvals = () => {
                         </div>
                     )}
                 </div>
-            </div>
+            </div> */}
 
 
             {/* <span>Date: {new Date(selectedItem.createdAt).toLocaleDateString()}</span> */}

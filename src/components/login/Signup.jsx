@@ -195,6 +195,7 @@ const Signup = () => {
                   name="profilePicture"
                   accept="image/*"
                   onChange={handleFileChange}
+                  required
                 />
               </div>
 

@@ -329,11 +329,13 @@ const Surveyor = () => {
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>
-            <div class="modal fade sur_m-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            
+            {/* <div class="modal fade sur_m-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
+                           
                             <span className='ad_si-no'>01</span>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -378,23 +380,19 @@ const Surveyor = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> */}
+                      
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
             {/* edit modal */}
 
-            <div class="modal fade sur_edit-modal" id="surEditModal" tabindex="-1" aria-labelledby="surEditModalLabel" aria-hidden="true">
+            {/* <div class="modal fade sur_edit-modal" id="surEditModal" tabindex="-1" aria-labelledby="surEditModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                            {/* <span className='ad_si-no'>01</span> */}
+                        
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -533,23 +531,19 @@ const Surveyor = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> */}
+                        
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
             {/* add volunteer modal */}
 
-            <div class="modal fade sur_edit-modal" id="addVolModal" tabindex="-1" aria-labelledby="addVolModalLabel" aria-hidden="true">
+            {/* <div class="modal fade sur_edit-modal" id="addVolModal" tabindex="-1" aria-labelledby="addVolModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            {/* <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> */}
-                            {/* <span className='ad_si-no'>01</span> */}
+                            
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -706,13 +700,10 @@ const Surveyor = () => {
                                 </div>
                             </form>
                         </div>
-                        {/* <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div> */}
+                        
                     </div>
                 </div>
-            </div>
+            </div> */}
 
         </>
     )

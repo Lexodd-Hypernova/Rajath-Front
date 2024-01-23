@@ -64,26 +64,11 @@
     border: none;
 }
 
-.sur_input-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.sr_ed-inp-n {
-    font-family: Roboto;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #282323;
-    width: 50%;
-}
 
-.sr_ed-inp-fld {
-    width: 50%;
-}
+
+
+
 
 .sur_m-cnt {
     display: flex;
@@ -93,13 +78,7 @@
     margin-top: 0;
 }
 
-.sur_addVl-cnt {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    gap: 12px;
-    margin-top: 0;
-}
+
 
 
 /* new */

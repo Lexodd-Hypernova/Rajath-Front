@@ -18,6 +18,9 @@
 
 .pl__Bt-data-lst {
     padding: 0 40px;
+    height: 62vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .pl__Bt-data-lst ul {
@@ -31,6 +34,16 @@
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #E9E9E9;
+}
+
+.pl__Bt-data-lst a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
 }
 
 .pl__Bt-data-lst span {
@@ -90,3 +103,117 @@
 
 
 /* Booth Address */
+
+
+.bt_Top-ad {
+    padding: 0 30px 20px 30px;
+}
+
+.bt_Top-ad span {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+
+.bt_ad-top-hd {
+    background: #6B46C1;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bt_ad-top-hd span {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+}
+
+.bt_cat-data {
+    padding: 0 30px;
+}
+
+.bt_cat-data ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bt_cat-data li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #B7B7B7;
+}
+
+.bt_cat-data a {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.bt_cat-data span {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.btn_cr {
+    color: #F96161;
+}
+
+.bt_prs-filled {
+    color: #35A839;
+}
+
+.bt_vol_icn {
+    border: 1px solid #68D391;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bt_vol_icn i {
+    font-size: 20px;
+    color: #68D391;
+}
+
+.bt_vol-txt {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+}
+
+.bt_Add-vol {
+    padding: 0 30px;
+    margin-top: 30px;
+}
+
+.bt_Add-vol a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: fit-content;
+}

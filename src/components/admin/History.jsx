@@ -148,7 +148,7 @@ const History = () => {
               </select>
             </div>
           </div>
-          <div className="hs_Row2">
+          {/* <div className="hs_Row2">
             <div className="hs_sh-sr">
               <select
                 className="form-select"
@@ -160,7 +160,7 @@ const History = () => {
                 <option value="3">Three</option>
               </select>
             </div>
-          </div>
+          </div> */}
           <div className="ad_flt-dt">
             <div className="ad_flt-dt-bx">
               <div className="input-group">
@@ -178,7 +178,7 @@ const History = () => {
               </div>
             </div>
           </div>
-
+          {/* 
           <div className="ad__Row1">
             <div className="ad_Rem-sec">
               <div className="remark_sec remark_sec-g">
@@ -194,7 +194,7 @@ const History = () => {
                 <span>{overViewData.Red}Booths</span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="ad__Row3">
             <div className="ad_Table-sec">

@@ -40,7 +40,6 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         var myHeaders = new Headers();
-
         var formdata = new FormData();
         formdata.append("emailId", formData.emailId);
         formdata.append("password", formData.password);

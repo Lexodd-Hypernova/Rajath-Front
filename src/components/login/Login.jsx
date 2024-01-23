@@ -67,9 +67,10 @@ const Login = () => {
         const role_type = data?.data?.role_type ?? "";
         const accessToken = data?.data?.accessToken;
 
+
         localStorage.setItem("accessToken", accessToken);
 
-        
+
 
         localStorage.setItem("role_type", role_type);
 
@@ -83,6 +84,8 @@ const Login = () => {
         } else {
           // You can use the Navigate component or another method to redirect to the user dashboard
           // return <Navigate to="/user/dashboard" />;
+          const surveyorId = data?.data?.id;
+          localStorage.setItem("surveyor_id", surveyorId);
           navigate("/surveyor/dashboard");
         }
       }

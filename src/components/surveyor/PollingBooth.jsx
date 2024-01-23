@@ -5,6 +5,7 @@ import MobileModal from '../menu/MobileModal';
 import { useMobHeaderContext } from '../../context/MobHeader';
 
 import { useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const PollingBooth = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -56,9 +57,9 @@ const PollingBooth = () => {
             return data.map((item, index) => {
                 return (
                     <li key={index}>
-                        <span>
+                        <Link to={`/booth-address?assembly=${assembly}&taluka=${taluka}&booth=${item.boothName}`}>
                             {item.boothName}
-                        </span>
+                        </Link>
                         {renderStatusIcon(item.status)}
                     </li>
                 )
@@ -131,6 +132,9 @@ const PollingBooth = () => {
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div className='sr_back-btn'>
+                    <Link to="/surveyor/dashboard">Back</Link>
                 </div>
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>

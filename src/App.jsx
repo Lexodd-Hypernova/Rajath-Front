@@ -12,6 +12,7 @@ import Signup from './components/login/Signup';
 import SurHistory from './components/surveyor/SurHistory';
 import PollingBooth from './components/surveyor/PollingBooth';
 import BoothAddress from './components/surveyor/BoothAddress';
+import OnBoard from './components/surveyor/OnBoard';
 function App() {
 
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="surveyor/history" element={<SurHistory />} />
             <Route path="polling-booths" element={<PollingBooth />} />
             <Route path="booth-address" element={<BoothAddress />} />
+            <Route path="onboard/:designation" element={<OnBoard />} />
             {/* <Route path="login" element={<Login />} /> */}
             <Route path="signup" element={<Signup />} />
             {/* <Route path="post" element={<Post />} />

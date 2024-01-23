@@ -16,12 +16,14 @@ const Admin = () => {
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
 
+  const token = localStorage.getItem("accessToken");
+
   useEffect(() => {
     const fetchOverView = async () => {
       try {
         const response = await fetch(`${BASEURL.url}/admin/getOverview`, {
           headers: {
-            Authorization: BASEURL.token,
+            Authorization: `Bearer ${token}`,
           },
         });
         if (!response.ok) {
@@ -39,7 +41,7 @@ const Admin = () => {
       try {
         const response = await fetch(`${BASEURL.url}/admin/getVolunteersData`, {
           headers: {
-            Authorization: BASEURL.token,
+            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -52,10 +54,10 @@ const Admin = () => {
         // Filter data based on the selectedDate
         const filteredData = selectedDate
           ? data.data.filter(
-              (item) =>
-                new Date(item.createdAt).toLocaleDateString() ===
-                new Date(selectedDate).toLocaleDateString()
-            )
+            (item) =>
+              new Date(item.createdAt).toLocaleDateString() ===
+              new Date(selectedDate).toLocaleDateString()
+          )
           : data.data;
 
         setAssemblyData(filteredData);

@@ -7,6 +7,7 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 import { useParams, useSearchParams } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
+import BASEURL from '../../data/baseurl';
 
 const OnBoard = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -100,9 +101,12 @@ const OnBoard = () => {
             redirect: 'follow'
         };
 
-        fetch("http://13.235.80.103:5200/auth/volunteerOnboard", requestOptions)
+        fetch(`${BASEURL.url}/auth/volunteerOnboard`, requestOptions)
             .then(response => response.json())
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+                clearForm();
+            })
             .catch(error => console.log('error', error));
     };
 

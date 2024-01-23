@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import BASEURL from "../../data/baseurl";
-import axios from "axios";
+// import axios from "axios";
 
 import "./style.css";
 
@@ -60,7 +60,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        "https://pab-backend.onrender.com/auth/register",
+        `${BASEURL.url}/auth/register`,
         requestOptions
       );
       if (response.ok) {

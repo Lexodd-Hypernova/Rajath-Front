@@ -18,12 +18,15 @@ const History = () => {
   const [selectedAssembly, setSelectedAssembly] = useState("All");
   const [selectedTaluka, setSelectedTaluka] = useState("All");
   const [listOfTaluka, setListOfTaluka] = useState([]);
+
+  const token = localStorage.getItem("accessToken");
+
   useEffect(() => {
     const fetchOverView = async () => {
       try {
         const response = await fetch(`${BASEURL.url}/admin/getOverview`, {
           headers: {
-            Authorization: BASEURL.token,
+            Authorization: `Bearer ${token}`,
           },
         });
         if (!response.ok) {
@@ -40,7 +43,7 @@ const History = () => {
       try {
         const response = await fetch(`${BASEURL.url}/admin/getVolunteersData`, {
           headers: {
-            Authorization: BASEURL.token,
+            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -55,7 +58,7 @@ const History = () => {
           const dateFilter =
             !selectedDate ||
             new Date(item.createdAt).toLocaleDateString() ===
-              new Date(selectedDate).toLocaleDateString();
+            new Date(selectedDate).toLocaleDateString();
 
           const assemblyFilter =
             selectedAssembly === "All" || item.assembly === selectedAssembly;
@@ -78,7 +81,7 @@ const History = () => {
           `${BASEURL.url}/com/talukasByAssembly?assembly=${selectedAssembly}`,
           {
             headers: {
-              Authorization: BASEURL.token,
+              Authorization: `Bearer ${token}`,
             },
           }
         );

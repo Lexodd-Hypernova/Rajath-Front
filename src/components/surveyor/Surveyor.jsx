@@ -5,6 +5,7 @@ import MobileModal from '../menu/MobileModal';
 import { useMobHeaderContext } from '../../context/MobHeader';
 
 import { Link } from 'react-router-dom';
+import BASEURL from '../../data/baseurl';
 
 const Surveyor = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -25,7 +26,7 @@ const Surveyor = () => {
             };
 
             try {
-                const response = await fetch("http://13.235.80.103:5200/auth/getATS", requestOptions);
+                const response = await fetch(`${BASEURL.url}/auth/getATS`, requestOptions);
                 const data = await response.json();
                 const atsData = data.data;
                 console.log("ATS", data);
@@ -330,7 +331,7 @@ const Surveyor = () => {
             </div>
             <MobileModal isOpen={isMobModalOpen} onClose={closeMobModal}></MobileModal>
 
-            
+
             {/* <div class="modal fade sur_m-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">

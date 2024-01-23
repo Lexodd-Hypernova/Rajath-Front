@@ -6,6 +6,7 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import BASEURL from '../../data/baseurl';
 
 const PollingBooth = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -33,7 +34,7 @@ const PollingBooth = () => {
             };
 
             try {
-                const response = await fetch(`http://13.235.80.103:5200/auth/getBoothsByAT?assembly=${assembly}&taluka=${taluka}`, requestOptions);
+                const response = await fetch(`${BASEURL.url}/auth/getBoothsByAT?assembly=${assembly}&taluka=${taluka}`, requestOptions);
                 const data = await response.json();
                 const pollingBoothsData = data.data.booths;
                 const totalBooths = pollingBoothsData.length;

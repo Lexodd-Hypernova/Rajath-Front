@@ -10,6 +10,9 @@ const BoothModal = ({ selectedRow, onClose }) => {
   const [datapass, setDataPass] = useState([]);
   const [error, setError] = useState(null);
 
+  // token
+  const token = localStorage.getItem("accessToken");
+
   const getWordColor = (status) => {
     switch (status) {
       case "YELLOW":
@@ -38,7 +41,7 @@ const BoothModal = ({ selectedRow, onClose }) => {
           `${BASEURL.url}/admin/getVolunteersByBoothId?booth_id=${selectedRow.booth_id}`,
           {
             headers: {
-              Authorization: BASEURL.token,
+              Authorization: `Bearer ${token}`,
             },
           }
         );

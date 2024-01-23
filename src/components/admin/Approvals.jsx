@@ -3,6 +3,8 @@ import MobHeader from "../header/MobHeader";
 import { useMobHeaderContext } from '../../context/MobHeader';
 import MobileModal from '../menu/MobileModal';
 
+import BASEURL from '../../data/baseurl';
+
 const Approvals = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
 
@@ -40,7 +42,7 @@ const Approvals = () => {
             redirect: 'follow'
         };
         try {
-            const response = await fetch("http://13.235.80.103:5200/admin/getUsersList", requestOptions);
+            const response = await fetch(`${BASEURL.url}/admin/getUsersList`, requestOptions);
             const data = await response.json();
             console.log("users", data);
             const users = data.data;
@@ -128,7 +130,7 @@ const Approvals = () => {
             redirect: 'follow'
         };
 
-        fetch("http://13.235.80.103:5200/admin/validateUser", requestOptions)
+        fetch(`${BASEURL.url}/admin/validateUser`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result)

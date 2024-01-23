@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BASEURL from "../../data/baseurl";
 
 const Login = () => {
   // const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
@@ -54,7 +55,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "https://pab-backend.onrender.com/auth/login",
+        `${BASEURL.url}/auth/login`,
         requestOptions
       );
 

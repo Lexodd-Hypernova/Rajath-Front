@@ -5,6 +5,7 @@ import MobileModal from '../menu/MobileModal';
 import { useMobHeaderContext } from '../../context/MobHeader';
 
 import { Link, useSearchParams } from 'react-router-dom';
+import BASEURL from '../../data/baseurl';
 
 
 const BoothAddress = () => {
@@ -37,7 +38,7 @@ const BoothAddress = () => {
             };
 
             try {
-                const response = await fetch(`http://13.235.80.103:5200/auth/getBoothDetailsByATB?assembly=${assembly}&taluka=${taluka}&booth=${booth}`, requestOptions)
+                const response = await fetch(`${BASEURL.url}/auth/getBoothDetailsByATB?assembly=${assembly}&taluka=${taluka}&booth=${booth}`, requestOptions)
                 const data = await response.json();
                 const boothData = data.data;
                 const boothAddress = boothData.address;

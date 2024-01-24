@@ -35,6 +35,9 @@ const MobileModal = ({ isOpen, onClose }) => {
     //         });
     //     };
     // }, []);
+
+    const role_type = localStorage.getItem("role_type");
+
     return (
         <>
             <div className={`mob-modal ${isOpen ? "open" : ""}`}>
@@ -62,19 +65,44 @@ const MobileModal = ({ isOpen, onClose }) => {
                                 <div className="mob-mn_Col2">
                                     <ul>
                                         <li>
-                                            <Link to="/admin/dashboard" onClick={onClose}>
-                                                Dashboard
-                                            </Link>
+                                            {
+                                                role_type === "SUPER ADMIN" ? (
+                                                    <Link to="/admin/dashboard" onClick={onClose}>
+                                                        Dashboard
+                                                    </Link>
+                                                ) : (
+                                                    <Link to="/surveyor/dashboard" onClick={onClose}>
+                                                        Dashboard
+                                                    </Link>
+                                                )
+                                            }
+
                                         </li>
                                         <li>
-                                            <Link to="/admin/approvals" onClick={onClose}>
-                                                Approvals
-                                            </Link>
+
+                                            {
+                                                role_type === "SUPER ADMIN" ? (
+                                                    <Link to="/admin/approvals" onClick={onClose}>
+                                                        Approvals
+                                                    </Link>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
+
                                         </li>
                                         <li>
-                                            <Link to="/admin/history" onClick={onClose}>
-                                                History
-                                            </Link>
+
+                                            {
+                                                role_type === "SUPER ADMIN" ? (
+                                                    <Link to="/admin/history" onClick={onClose}>
+                                                        History
+                                                    </Link>
+                                                ) : (
+                                                    ""
+                                                )
+                                            }
+
                                         </li>
                                     </ul>
                                     <button>

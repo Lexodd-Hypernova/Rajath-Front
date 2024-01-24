@@ -3,10 +3,13 @@ import "./mobileModal.css";
 
 import { Link } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
+
 
 
 
 const MobileModal = ({ isOpen, onClose }) => {
+    const navigate = useNavigate();
     // useEffect(() => {
     //     const initializeCursor = () => {
     //         const links = document.querySelectorAll('a');
@@ -37,6 +40,14 @@ const MobileModal = ({ isOpen, onClose }) => {
     // }, []);
 
     const role_type = localStorage.getItem("role_type");
+
+
+    const handleLogOut = ()=>{
+        localStorage.removeItem("role_type");
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("surveyor_id");
+        navigate("/");
+    }
 
     return (
         <>
@@ -105,7 +116,7 @@ const MobileModal = ({ isOpen, onClose }) => {
 
                                         </li>
                                     </ul>
-                                    <button>
+                                    <button onClick={handleLogOut}>
                                         Logout
                                     </button>
                                 </div>

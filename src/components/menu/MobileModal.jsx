@@ -64,9 +64,9 @@ const MobileModal = ({ isOpen, onClose }) => {
                                         <a href="/" className="mob-menu_Modal-logo" onClick={onClose}>
                                             <img src="/assets/images/logo.png" alt="logo"></img>
                                         </a>
-                                        <span>
+                                        {/* <span>
                                             Super Admin
-                                        </span>
+                                        </span> */}
 
                                     </div>
                                     {/* <div className="mn_Cnt-us">

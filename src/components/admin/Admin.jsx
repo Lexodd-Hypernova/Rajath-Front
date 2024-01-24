@@ -169,8 +169,7 @@ const Admin = () => {
         </div>
       </div>
       <MobileModal
-        isOpen={isMobModalOpen}
-        onClose={closeMobModal}
+        isOpen={isMobModalOpen} onClose={closeMobModal}
       ></MobileModal>
       {selectedRow && (
         <DetailModal

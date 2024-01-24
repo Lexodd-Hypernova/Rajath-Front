@@ -42,10 +42,11 @@ const MobileModal = ({ isOpen, onClose }) => {
     const role_type = localStorage.getItem("role_type");
 
 
-    const handleLogOut = ()=>{
+    const handleLogOut = () => {
         localStorage.removeItem("role_type");
         localStorage.removeItem("accessToken");
         localStorage.removeItem("surveyor_id");
+        onClose();
         navigate("/");
     }
 

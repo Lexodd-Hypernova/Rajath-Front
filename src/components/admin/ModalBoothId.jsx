@@ -87,7 +87,8 @@ const BoothModal = ({ selectedRow, onClose }) => {
                   Booth Level President: {renderStatusIcon(boothdata.PRESIDENT)}
                 </p>
                 <p onClick={() => updateDataPass(boothdata.BLA1)}>
-                  Booth Level Agent 1: {boothdata.BLA1.volunteer_name}
+                  {/* Booth Level Agent 1: {boothdata.BLA1.volunteer_name} */}
+                  Booth Level Agent 1: {renderStatusIcon(boothdata.PRESIDENT)}
                 </p>
                 <p onClick={() => updateDataPass(boothdata.BLA2)}>
                   Booth Level Agent 2: {renderStatusIcon(boothdata.BLA2)}

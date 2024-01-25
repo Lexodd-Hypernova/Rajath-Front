@@ -61,7 +61,8 @@ const BoothModal = ({ selectedRow, onClose }) => {
       }
     };
     fetchBoothDetails();
-  }, [selectedRow.booth_id, updateDataPass]); // Include updateDataPass in the dependency array
+    console.log("getVolunteersByBoothId")
+  }, [selectedRow.booth_id]); // Include updateDataPass in the dependency array (removed updateDataPass from dependency array to avoid API call again and again)
 
   return (
     <div className="modal">

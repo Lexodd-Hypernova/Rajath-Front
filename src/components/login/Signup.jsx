@@ -94,13 +94,13 @@ const Signup = () => {
           </div>
           <div className="act_Form">
             <form onSubmit={handleSubmit}>
-              <div class="mb-3">
-                <label for="sName" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sName" className="form-label">
                   Name*
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="sName"
                   name="user_name"
                   value={formData.user_name}
@@ -109,13 +109,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sEmail" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sEmail" className="form-label">
                   Email ID*
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="sEmail"
                   name="emailId"
                   value={formData.emailId}
@@ -124,13 +124,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sPhone" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sPhone" className="form-label">
                   Phone No*
                 </label>
                 <input
                   type="tel"
-                  class="form-control"
+                  className="form-control"
                   id="sPhone"
                   name="phn_no"
                   value={formData.phn_no}
@@ -139,13 +139,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sAddress" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sAddress" className="form-label">
                   Home Address*
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="sAddress"
                   name="address"
                   value={formData.address}
@@ -154,13 +154,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sPassword" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sPassword" className="form-label">
                   Password*
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="sPassword"
                   name="password"
                   value={formData.password}
@@ -169,13 +169,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sCPassword" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sCPassword" className="form-label">
                   Conform Password*
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="sCPassword"
                   name="confirmpassword"
                   value={formData.confirmpassword}
@@ -184,13 +184,13 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sFile" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sFile" className="form-label">
                   Upload Image
                 </label>
                 <input
                   type="file"
-                  class="form-control"
+                  className="form-control"
                   id="sFile"
                   name="profilePicture"
                   accept="image/*"
@@ -200,7 +200,7 @@ const Signup = () => {
               </div>
 
               <div className="sbt_btn">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Get Start
                 </button>
                 <span>

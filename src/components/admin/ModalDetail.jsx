@@ -16,10 +16,11 @@ const DetailModal = ({ selectedRow, onClose }) => {
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modal admn_modal">
+      <div className="modal-content admn_modal_cnt">
         <span className="close" onClick={onClose}>
-          &times;
+          {/* &times; */}
+          <i className="fa-solid fa-xmark"></i>
         </span>
 
         <p>Surveyor Name: {selectedRow.surveyor_name}</p>

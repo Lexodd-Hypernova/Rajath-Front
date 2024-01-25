@@ -112,13 +112,13 @@ const Login = () => {
           </div>
           <div className="act_Form">
             <form onSubmit={handleSubmit}>
-              <div class="mb-3">
-                <label for="sPhone" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sPhone" className="form-label">
                   Phone No*
                 </label>
                 <input
                   type="tel"
-                  class="form-control"
+                  className="form-control"
                   id="sPhone"
                   name="phn_no"
                   value={formData.phn_no}
@@ -127,13 +127,13 @@ const Login = () => {
                   required
                 />
               </div>
-              <div class="mb-3">
-                <label for="sPassword" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="sPassword" className="form-label">
                   Password*
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="sPassword"
                   name="password"
                   value={formData.password}
@@ -146,7 +146,7 @@ const Login = () => {
                 <span className="frgt">Forgot password?</span>
               </div>
               <div className="sbt_btn">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Login
                 </button>
                 <span>

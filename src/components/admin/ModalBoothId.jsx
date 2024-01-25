@@ -65,10 +65,10 @@ const BoothModal = ({ selectedRow, onClose }) => {
   }, [selectedRow.booth_id]); // Include updateDataPass in the dependency array (removed updateDataPass from dependency array to avoid API call again and again)
 
   return (
-    <div className="modal">
+    <div className="modal admin_modal">
       <div className="modal-content">
         <span className="close" onClick={onClose}>
-          &times;
+          <i className="fa-solid fa-xmark"></i>
         </span>
 
         {loading && <p>Loading...</p>}

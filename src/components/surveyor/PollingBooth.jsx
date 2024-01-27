@@ -8,6 +8,8 @@ import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import BASEURL from '../../data/baseurl';
 
+import { ThreeCircles } from 'react-loader-spinner';
+
 const PollingBooth = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
     let [searchParams] = useSearchParams();
@@ -55,7 +57,16 @@ const PollingBooth = () => {
 
     const veiwPollingBooths = (data) => {
         if (!data) {
-            return <div>Data is loading...</div>;
+            // return <div>Data is loading...</div>;
+            return (<ThreeCircles
+                visible={true}
+                height="100"
+                width="100"
+                color="#4fa94d"
+                ariaLabel="three-circles-loading"
+                wrapperStyle={{}}
+                wrapperClass="loader"
+            />)
         }
 
         return (

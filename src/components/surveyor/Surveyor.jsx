@@ -7,6 +7,8 @@ import { useMobHeaderContext } from '../../context/MobHeader';
 import { Link } from 'react-router-dom';
 import BASEURL from '../../data/baseurl';
 
+import { ThreeCircles } from 'react-loader-spinner';
+
 const Surveyor = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
 
@@ -49,7 +51,16 @@ const Surveyor = () => {
 
     const viewAtsList = (data) => {
         if (!data) {
-            return <div>Data is loading...</div>;
+            // return <div>Data is loading...</div>;
+            return (<ThreeCircles
+                visible={true}
+                height="100"
+                width="100"
+                color="#4fa94d"
+                ariaLabel="three-circles-loading"
+                wrapperStyle={{}}
+                wrapperClass="loader"
+            />)
         }
 
         return Object.entries(data).map(([location, items]) => (

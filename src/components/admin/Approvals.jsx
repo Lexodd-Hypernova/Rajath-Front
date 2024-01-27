@@ -7,10 +7,12 @@ import BASEURL from '../../data/baseurl';
 import "./approval.css";
 import ApprovalCustomModal from './ApprovalCustomModal';
 
+import { ThreeCircles } from 'react-loader-spinner';
+
 const Approvals = () => {
     const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
 
-    const [userList, setUserList] = useState('');
+    const [userList, setUserList] = useState(null);
 
     const [selectedItem, setSelectedItem] = useState(null);
     const [serialNumber, setSerialNumber] = useState(null);
@@ -97,7 +99,7 @@ const Approvals = () => {
     //     setSelectedItem(null);
     // };
 
- 
+
 
 
 
@@ -128,7 +130,7 @@ const Approvals = () => {
                             </div>
                         </div>
                         <div className='app_ref-btn'>
-                            <button className='btn' onClick={()=>fetchUserList(userList)}>
+                            <button className='btn' onClick={() => fetchUserList(userList)}>
                                 <i className="fa-solid fa-rotate-right"></i>
                             </button>
                         </div>
@@ -143,32 +145,49 @@ const Approvals = () => {
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody className='align-middle'>
-                                {Array.isArray(userList) ? (
-                                    userList.map((item) => (
-
-                                        <tr key={item.id}>
-                                            <td>{item.surveyor_name}</td>
-                                            <td>{new Date(item.createdAt).toLocaleDateString()}</td>
-                                            <td>{item.phn_no}</td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    className='btn'
-                                                    onClick={() => handleViewDetails(item)}
-                                                >
-                                                    <i class="fa-solid fa-eye"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))
-                                ) : (
+                            <tbody className="align-middle">
+                                {userList === null ? (
                                     <tr>
-                                        <td colSpan="4">Loading user data...</td>
+                                        <td colSpan="4">
+                                            <ThreeCircles
+                                                visible={true}
+                                                height="100"
+                                                width="100"
+                                                color="#4fa94d"
+                                                ariaLabel="three-circles-loading"
+                                                wrapperStyle={{}}
+                                                wrapperClass="loader"
+                                            />
+                                        </td>
                                     </tr>
+                                ) : (
+                                    <>
+                                        {Array.isArray(userList) && userList.length > 0 ? (
+                                            userList.map((item) => (
+                                                <tr key={item.id}>
+                                                    <td>{item.surveyor_name}</td>
+                                                    <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+                                                    <td>{item.phn_no}</td>
+                                                    <td>
+                                                        <button
+                                                            type="button"
+                                                            className="btn"
+                                                            onClick={() => handleViewDetails(item)}
+                                                        >
+                                                            <i className="fa-solid fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        ) : (
+                                            <tr>
+                                                <td colSpan="4">No data exits that need to be approved.</td>
+                                            </tr>
+                                        )}
+                                    </>
                                 )}
-
                             </tbody>
+
                         </table>
                     </div>
                 </div>

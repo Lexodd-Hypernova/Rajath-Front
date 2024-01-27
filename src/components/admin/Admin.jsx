@@ -9,9 +9,11 @@ import RedSvg from "../../../public/assets/images/red.svg";
 import { useMobHeaderContext } from "../../context/MobHeader";
 import DetailModal from "./ModalDetail";
 
+import { ThreeCircles } from 'react-loader-spinner';
+
 const Admin = () => {
   const { isMobModalOpen, closeMobModal } = useMobHeaderContext();
-  const [assemblyData, setAssemblyData] = useState([]);
+  const [assemblyData, setAssemblyData] = useState(null);
   const [overViewData, setOverViewData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedDate, setSelectedDate] = useState("");
@@ -141,28 +143,48 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody className="align-middle">
-                  {assemblyData.length > 0 ? (
-                    assemblyData.map((item, index) => (
-                      <tr
-                        onClick={() => {
-                          console.log("Row clicked:", item);
-                          setSelectedRow(item);
-                        }}
-                        key={index}
-                        className="align-middle"
-                      >
-                        <td className="align-middle">{item.surveyor_name}</td>
-                        <td>{new Date(item.createdAt).toLocaleDateString()}</td>
-                        <td>{item.taluka}</td>
-                        <td>{getStatusIcon(item.booth_status)}</td>
-                      </tr>
-                    ))
-                  ) : (
+                  {assemblyData === null ? (
                     <tr>
-                      <td colSpan="4">Loading your data...</td>
+                      <td colSpan="4">
+                        <ThreeCircles
+                          visible={true}
+                          height="100"
+                          width="100"
+                          color="#4fa94d"
+                          ariaLabel="three-circles-loading"
+                          wrapperStyle={{}}
+                          wrapperClass="loader"
+                        />
+                      </td>
                     </tr>
+                  ) : (
+                    <>
+                      {assemblyData.length > 0 ? (
+                        assemblyData.map((item, index) => (
+                          <tr
+                            onClick={() => {
+                              console.log("Row clicked:", item);
+                              setSelectedRow(item);
+                            }}
+                            key={index}
+                            className="align-middle"
+                          >
+                            <td className="align-middle">{item.surveyor_name}</td>
+                            <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+                            <td>{item.taluka}</td>
+                            <td>{getStatusIcon(item.booth_status)}</td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="4">No data as per filter.</td>
+                        </tr>
+                      )}
+                    </>
                   )}
                 </tbody>
+
+
               </table>
             </div>
           </div>

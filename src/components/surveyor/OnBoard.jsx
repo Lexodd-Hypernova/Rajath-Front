@@ -151,7 +151,7 @@ const OnBoard = () => {
                                             aria-describedby=""
                                             name="assembly"
                                             value={formData.assembly}
-                                            readonly
+                                            readOnly
                                         ></input>
                                     </div>
                                 </div>
@@ -167,7 +167,7 @@ const OnBoard = () => {
                                             aria-describedby=""
                                             name="taluka"
                                             value={formData.taluka}
-                                            readonly
+                                            readOnly
                                         ></input>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@ const OnBoard = () => {
                                             aria-describedby=""
                                             name="booth"
                                             value={formData.booth}
-                                            readonly
+                                            readOnly
                                         ></input>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@ const OnBoard = () => {
                                             aria-describedby=""
                                             name="booth_address"
                                             value={formData.booth_address}
-                                            readonly
+                                            readOnly
                                         ></input>
                                     </div>
                                 </div>
@@ -358,7 +358,7 @@ const OnBoard = () => {
                                             aria-describedby=""
                                             name="designation"
                                             value={formData.designation}
-                                            readonly
+                                            readOnly
                                         ></input>
                                     </div>
                                 </div>

@@ -105,6 +105,10 @@ textarea {
     flex: 1;
 }
 
+.mob-mn_Col2 .active {
+    background-color: #E03386;
+}
+
 .mob-mn_Cl-icn {
     position: absolute;
     top: 15px;
@@ -158,6 +162,8 @@ textarea {
     text-decoration: none;
     display: inline-block;
     width: 100%;
+    padding: 11px 0;
+    border-radius: 5px;
 }
 
 .mob-menu_Modal-logo {

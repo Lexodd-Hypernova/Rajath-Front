@@ -35,3 +35,8 @@ a {
   text-align: left;
   color: #000;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+}

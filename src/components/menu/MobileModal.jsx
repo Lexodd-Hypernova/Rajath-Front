@@ -3,6 +3,8 @@ import "./mobileModal.css";
 
 import { Link } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -79,13 +81,13 @@ const MobileModal = ({ isOpen, onClose }) => {
                                         <li>
                                             {
                                                 role_type === "SUPER ADMIN" ? (
-                                                    <Link to="/admin/dashboard" onClick={onClose}>
+                                                    <NavLink to="/admin/dashboard" onClick={onClose}>
                                                         Dashboard
-                                                    </Link>
+                                                    </NavLink>
                                                 ) : (
-                                                    <Link to="/surveyor/dashboard" onClick={onClose}>
+                                                    <NavLink to="/surveyor/dashboard" onClick={onClose}>
                                                         Dashboard
-                                                    </Link>
+                                                    </NavLink>
                                                 )
                                             }
 
@@ -94,9 +96,9 @@ const MobileModal = ({ isOpen, onClose }) => {
 
                                             {
                                                 role_type === "SUPER ADMIN" ? (
-                                                    <Link to="/admin/approvals" onClick={onClose}>
+                                                    <NavLink to="/admin/approvals" onClick={onClose}>
                                                         Approvals
-                                                    </Link>
+                                                    </NavLink>
                                                 ) : (
                                                     ""
                                                 )
@@ -107,9 +109,9 @@ const MobileModal = ({ isOpen, onClose }) => {
 
                                             {
                                                 role_type === "SUPER ADMIN" ? (
-                                                    <Link to="/admin/history" onClick={onClose}>
+                                                    <NavLink to="/admin/history" onClick={onClose}>
                                                         History
-                                                    </Link>
+                                                    </NavLink>
                                                 ) : (
                                                     ""
                                                 )
